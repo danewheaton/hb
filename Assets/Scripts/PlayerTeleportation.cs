@@ -23,12 +23,12 @@ public class PlayerTeleportation : MonoBehaviour
         startingDoorTriggerClockwise, glass0, glass0Copy, startingDoor, startingDoorBlocker, hallwayTrigger, hallwayWall01,
         hallwayWall02, teleporterTrigger01, triggerAfterTeleporter01, wallBlockingWay, teleporterTrigger02Right, teleporterTrigger02Left, narthexDoor,
         narthexDoorTrigger, narthexDoorBlocker, glass1Activator, glass1perspectivePuzzle, glass1gameObject, invisibleDoor01, invisibleDoor01Blocker,
-        invisibleDoor02, invisibleDoor02Blocker, pews, newChurch, oldCourtyard, door03, door03Trigger, door03Blocker,
+        invisibleDoor02, invisibleDoor02Blocker, pews, altar, altarTeleporter, newChurch, oldCourtyard, door03, door03Trigger, door03Blocker,
         mirror, fakeMirror, mirrorDoor1, mirrorDoor1Trigger, mirrorDoor1Blocker, mirrorDoor2Blocker,
         mirrorDoor2Trigger, mirror2Trigger, glass2, glass2Trigger, returnToOriginalRefectoryTrigger, newRefectoryTrigger,
         doorToCatacombs, doorToCatacombsTrigger, doorAtBottomOfStairwell, doorAtBottomOfStairwellTrigger,
-        doorAtBottomOfStairwellBlocker, catacombsUnlit, catacombsLit, endTrigger, staticAssets;
-    public GameObject[] scrawlings, disappearingPassage, reappearingNook;
+        doorAtBottomOfStairwellBlocker, catacombsUnlit, catacombsLit, endTrigger, staticAssets, dynamicAssets;
+    public GameObject[] scrawlings, disappearingPassage, reappearingNook, observatoryMirrors;
     public Transform startingDoorTransform, teleporter02Transform, glass1Transform, portal01Transform, mirror01Transform;
     public Transform[] flamingoTransforms, playerStarts;
     public Material beigeMaterial, whiteMaterial, oldCourtyardMaterial;
@@ -38,6 +38,7 @@ public class PlayerTeleportation : MonoBehaviour
     List<Material> flamingoMaterials = new List<Material>(), legMaterials = new List<Material>();
     Material invisibleFlamingoMaterial;
     PlayerStates currentState;
+    Vector3 originalScale, targetScale = new Vector3(.2f, .2f, .2f);
 
     int laps;
     bool flamingoIsVisible, passedThrough, hittingForeground, hittingBackground, wentAroundOnce;
@@ -55,11 +56,26 @@ public class PlayerTeleportation : MonoBehaviour
             flamingoMaterials.Add(r.material);
         }
 
-        foreach (Material m in flamingoLegs.GetComponent<Renderer>().materials) legMaterials.Add(m); 
+        foreach (Material m in flamingoLegs.GetComponent<Renderer>().materials) legMaterials.Add(m);
+
+        originalScale = transform.localScale;
     }
 
     void Update()
     {
+        print(Vector3.Distance(transform.position, altar.transform.position));
+
+        if (Vector3.Distance(transform.position, altar.transform.position) < 1)
+        {
+            transform.localScale = Vector3.Lerp(transform.localScale, targetScale, 2 * Time.deltaTime);
+            GetComponent<vp_FPController>().MotorAcceleration = .06f;
+        }
+        else if (Vector3.Distance(transform.position, altar.transform.position) < 5)
+        {
+            transform.localScale = Vector3.Lerp(transform.localScale, originalScale, 2 * Time.deltaTime);
+            GetComponent<vp_FPController>().MotorAcceleration = .12f;
+        }
+
         if (flamingoIsVisible)
         {
             Vector3 flamingoDirection = flamingo.transform.position - transform.position;
@@ -265,6 +281,16 @@ public class PlayerTeleportation : MonoBehaviour
         {
             narthexDoor.SetActive(false);
             narthexDoorBlocker.SetActive(true);
+        }
+
+        else if (other.gameObject == altarTeleporter)
+        {
+            transform.position = playerStarts[4].position;
+            transform.localScale = originalScale;
+            GetComponent<vp_FPController>().MotorAcceleration = .12f;
+            foreach (GameObject g in observatoryMirrors) g.SetActive(true);
+            staticAssets.SetActive(false);
+            dynamicAssets.SetActive(false);
         }
 
         else if (other.gameObject == glass1Activator) glass1perspectivePuzzle.SetActive(true);
