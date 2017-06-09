@@ -31,7 +31,7 @@ public class PlayerTeleportation : MonoBehaviour
     public GameObject[] scrawlings, disappearingPassage, reappearingNook, observatoryMirrors;
     public Transform startingDoorTransform, teleporter02Transform, glass1Transform, portal01Transform, mirror01Transform;
     public Transform[] flamingoTransforms, playerStarts;
-    public Material beigeMaterial, whiteMaterial, oldCourtyardMaterial;
+    public Material beigeMaterial, whiteMaterial, oldCourtyardMaterial, invisibleMaterial;
     public Credits creditsPanel;
 
     List<Renderer> flamingoRenderers = new List<Renderer>();
@@ -319,8 +319,9 @@ public class PlayerTeleportation : MonoBehaviour
 
                 Renderer[] renderers = newChurch.GetComponentsInChildren<Renderer>();
 
-                foreach (Renderer r in flamingo.GetComponentsInChildren<Renderer>())
-                    r.material = renderers[0].material;
+				foreach (Renderer r in flamingo.GetComponentsInChildren<Renderer>())
+					r.material = invisibleMaterial;
+                    //r.material = renderers[0].material;
 
                 Material[] mats = flamingoLegs.GetComponent<Renderer>().materials;
 

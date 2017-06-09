@@ -163,7 +163,7 @@ public class vp_StateManager
 		// prevent manually disabling the default state
 		if ((m_TargetId == m_DefaultId) && !setEnabled)
 		{
-			//Debug.LogWarning("Warning: The 'Default' state cannot be disabled.");
+			Debug.LogWarning("Warning: The 'Default' state cannot be disabled.");
 			return;
 		}
 
