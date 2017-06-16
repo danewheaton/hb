@@ -1,3 +1,7 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+
 Shader "Colr/Master Shader" {
 
 	Properties {
@@ -28,6 +32,9 @@ Shader "Colr/Master Shader" {
 
 		_LightmapColor ("Lightmap Color", Color) = (0, 0, 0, 0)
 		_LightmapPower ("Lightmap Power", Range(0, 5.0)) = 0.5
+
+		_Rotation ("Rotation", Range(0, 6.283185)) = 0.0
+		_Offset ("Rotation offset", Vector) = (0, 0, 0)
 	}
 
 	SubShader {
@@ -70,7 +77,10 @@ Shader "Colr/Master Shader" {
             static const half3 LEFT = half3(-1, 0, 1);
             static const half3 UP = half3(0, 1,0);
             static const half3 DOWN = half3(0, -1, 0);
-			
+
+			uniform float _Rotation;
+			uniform float3 _Offset;
+
 			uniform half3 _FrontTopColor;
 			uniform half3 _FrontBottomColor;
 			uniform half3 _BackTopColor;
@@ -84,8 +94,8 @@ Shader "Colr/Master Shader" {
 			uniform half3 _TopColor;
 			uniform half3 _BottomColor;
 
-			uniform half _GradientYStartPos;
-			uniform half _GradientHeight;
+			uniform float _GradientYStartPos;
+			uniform float _GradientHeight;
 
 			uniform half3 _AmbientColor;
 			uniform half _AmbientPower;
@@ -98,20 +108,20 @@ Shader "Colr/Master Shader" {
 			uniform fixed _ShadowPower;
 
 			struct appdata {
-				half4 vertex : POSITION;
+				float4 vertex : POSITION;
 				half3 normal : NORMAL;
 				half3 color : COLOR;
-				half4 uv : TEXCOORD0;
-				half4 texcoord1 : TEXCOORD1;
+				float4 uv : TEXCOORD0;
+				float4 texcoord1 : TEXCOORD1;
 			};
 
 			struct v2f {
-				half4 pos : POSITION;
+				float4 pos : POSITION;
 
-				half2 lightmap_uv : TEXCOORD0;
-				half3 lighting : TEXCOORD1;
+				float2 lightmap_uv : TEXCOORD0;
+				float3 lighting : TEXCOORD1;
 
-				half3 color : TEXCOORD2;
+				float3 color : TEXCOORD2;
 
             	UNITY_FOG_COORDS(3)
             	LIGHTING_COORDS(4, 5)
@@ -129,7 +139,7 @@ Shader "Colr/Master Shader" {
 				v2f o;
 
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.pos = UnityObjectToClipPos(v.vertex);
 
 				half3 normal = normalize(mul(unity_ObjectToWorld, half4(v.normal, 0))).xyz;
 
@@ -141,10 +151,12 @@ Shader "Colr/Master Shader" {
 				half dirLeft =  1 - acos(saturate(dot(LEFT, RIGHT * normal))) / PI_HALF;
 				half dirUp =    1 - acos(saturate(dot(UP, UP * normal))) / PI_HALF;
 				half dirDown =  1 - acos(saturate(dot(DOWN, UP * normal))) / PI_HALF;
-                
-				half4 posGrad = mul(unity_ObjectToWorld, v.vertex);
 
-				half blendFractor = saturate((posGrad.y - _GradientYStartPos) / _GradientHeight);
+   				float4 posGrad = mul(unity_ObjectToWorld, v.vertex);
+				float posGradRotated = (posGrad.x - _Offset.x) * sin(_Rotation) + 
+									  (posGrad.y - _Offset.y) * cos(_Rotation);
+				half blendFractor = saturate((posGradRotated - _GradientYStartPos) / _GradientHeight);
+
 				half3 colorFront = lerp(_FrontBottomColor, _FrontTopColor, blendFractor);
 				half3 colorBack = lerp(_BackBottomColor, _BackTopColor, blendFractor);
 				half3 colorRight = lerp(_RightBottomColor, _RightTopColor, blendFractor);
@@ -184,7 +196,7 @@ Shader "Colr/Master Shader" {
 				#if LIGHTMAP_COLR_ON
 					o.lightmap_uv = v.texcoord1.xy * unity_LightmapST.xy + unity_LightmapST.zw;
 				#else
-					o.lightmap_uv = half3(0, 0, 0);
+					o.lightmap_uv = float3(0, 0, 0);
 				#endif
 
 				// Transfer realtime shadows
@@ -199,7 +211,7 @@ Shader "Colr/Master Shader" {
 
 			fixed4 frag(v2f v) : COLOR {
 				half4 result = VEC4_ZERO;
-				half4 lightColor = half4(_LightTint * v.lighting, 1);
+				half4 lightColor = float4(_LightTint * v.lighting, 1);
 
                 #ifdef LIGHTMAP_ON
                     #if LIGHTMAP_COLR_ON
@@ -214,8 +226,7 @@ Shader "Colr/Master Shader" {
                     result = lightColor * SHADOW_ATTENUATION(v);
                 #endif
 
-				float4 t = tex2D(_MainTex, v.uv);
-				result.xyz *= v.color * t;
+				result.rgb *= v.color * tex2D(_MainTex, v.uv);
 
                 UNITY_APPLY_FOG(v.fogCoord, result);
 

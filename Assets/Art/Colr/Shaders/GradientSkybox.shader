@@ -1,4 +1,6 @@
-﻿Shader "Colr/Gradient Skybox" {
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Colr/Gradient Skybox" {
 
     Properties {
         _Color2 ("Top Color", Color) = (0.97, 0.67, 0.51, 0)
@@ -38,7 +40,7 @@
     
     v2f vert (appdata v) {
         v2f o;
-        o.position = mul(UNITY_MATRIX_MVP, v.position);
+        o.position = UnityObjectToClipPos(v.position);
         o.texcoord = v.texcoord;
         return o;
     }

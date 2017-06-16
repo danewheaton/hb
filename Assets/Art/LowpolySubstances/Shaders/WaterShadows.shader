@@ -1,4 +1,6 @@
-﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
 
 // Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
 
@@ -92,7 +94,7 @@ Category {
                 output.color.a = _Alpha;
 			    output.color.rgb *= output.color.a;
                 
-                output.pos = mul(UNITY_MATRIX_MVP, vertex.pos);
+                output.pos = UnityObjectToClipPos(vertex.pos);
                 
                 UNITY_TRANSFER_FOG(output, output.pos);
                 TRANSFER_VERTEX_TO_FRAGMENT(output);
