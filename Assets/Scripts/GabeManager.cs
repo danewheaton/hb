@@ -17,11 +17,9 @@ public class GabeManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == player.gameObject)
+        if (other.gameObject == player.gameObject && !playerIsStandingOnPedestal)
         {
-            
-            if (!playerIsStandingOnPedestal) lookScript.m_Target = player;
-            if (currentlyActivatedMirrors == mirrorsActivated.BOTH_MIRRORS) StartCoroutine(Shake());
+            lookScript.m_Target = player;
         }
     }
 
@@ -52,7 +50,7 @@ public class GabeManager : MonoBehaviour
         currentlyActivatedMirrors = mirror;
     }
 
-    IEnumerator Shake()
+    public IEnumerator Shake()
     {
         float timer = 2;
         float elapsedTime = 0;

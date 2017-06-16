@@ -232,9 +232,9 @@ public class PlayerTeleportation : MonoBehaviour
                     break;
             }
         }
-        else if (other.gameObject == pedestal)
+        else if (other.gameObject == pedestal && gabe.CurrentlyActivatedMirrors == mirrorsActivated.BOTH_MIRRORS)
         {
-            gabe.playerIsStandingOnPedestal = true;
+            StartCoroutine(gabe.Shake());
         }
 
         else if (other.gameObject == startingDoorTrigger || other.gameObject == startingDoorTriggerClockwise)
