@@ -27,7 +27,7 @@ public class GabeManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other == player)
+        if (other.gameObject == player)
         {
             if (currentlyActivatedMirrors != mirrorsActivated.BOTH_MIRRORS) lookScript.m_Target = player;
             else if (playerIsStandingOnPedestal) StartCoroutine(Shake());
@@ -58,7 +58,6 @@ public class GabeManager : MonoBehaviour
 
     public void ActivateMirror(mirrorsActivated mirror)
     {
-        print("should change currentlyActivatedMirrors");
         currentlyActivatedMirrors = mirror;
     }
 

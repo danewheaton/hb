@@ -196,9 +196,8 @@ public class PlayerTeleportation : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other == observatoryMirror1)
+        if (other.gameObject == observatoryMirror1)
         {
-            print("should have entered observatoryMirror1 trigger");
             switch (gabe.CurrentlyActivatedMirrors)
             {
                 case mirrorsActivated.NONE:
@@ -217,7 +216,6 @@ public class PlayerTeleportation : MonoBehaviour
         }
         else if (other.gameObject == observatoryMirror2)
         {
-            print("should have entered observatoryMirror2 trigger");
             switch (gabe.CurrentlyActivatedMirrors)
             {
                 case mirrorsActivated.NONE:
