@@ -198,6 +198,8 @@ public class PlayerTeleportation : MonoBehaviour
     {
         if (other.gameObject == observatoryMirror1)
         {
+            gabe.alsoYouLeftMirror.SetActive(true);
+
             switch (gabe.CurrentlyActivatedMirrors)
             {
                 case mirrorsActivated.NONE:
@@ -216,6 +218,8 @@ public class PlayerTeleportation : MonoBehaviour
         }
         else if (other.gameObject == observatoryMirror2)
         {
+            gabe.alsoYouRightMirror.SetActive(true);
+
             switch (gabe.CurrentlyActivatedMirrors)
             {
                 case mirrorsActivated.NONE:

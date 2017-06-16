@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Cameras;
 
-public enum mirrorsActivated { NONE, MIRROR1, MIRROR2, BOTH_MIRRORS }
+public enum mirrorsActivated { NONE, MIRROR1, MIRROR2, BOTH_MIRRORS, PUZZLE_COMPLETE }
 
 public class GabeManager : MonoBehaviour
 {
@@ -11,7 +11,8 @@ public class GabeManager : MonoBehaviour
     mirrorsActivated currentlyActivatedMirrors = mirrorsActivated.NONE;
     public mirrorsActivated CurrentlyActivatedMirrors { get { return currentlyActivatedMirrors; } }
 
-    [SerializeField] Transform player, mirror1, mirror2, pedestal;
+    public GameObject alsoYouLeftMirror, alsoYouRightMirror;
+    [SerializeField] Transform player, leftMirror, rightMirror, pedestal;
     [SerializeField] LookatTarget lookScript;
     [SerializeField] Rigidbody shard;
 
@@ -31,10 +32,10 @@ public class GabeManager : MonoBehaviour
                 lookScript.m_Target = null;
                 break;
             case mirrorsActivated.MIRROR1:
-                lookScript.m_Target = mirror1;
+                lookScript.m_Target = leftMirror;
                 break;
             case mirrorsActivated.MIRROR2:
-                lookScript.m_Target = mirror2;
+                lookScript.m_Target = rightMirror;
                 break;
             case mirrorsActivated.BOTH_MIRRORS:
                 lookScript.m_Target = pedestal;
@@ -66,5 +67,8 @@ public class GabeManager : MonoBehaviour
         }
 
         shard.isKinematic = false;
+        shard.transform.parent = null;
+
+        currentlyActivatedMirrors = mirrorsActivated.PUZZLE_COMPLETE;
     }
 }
