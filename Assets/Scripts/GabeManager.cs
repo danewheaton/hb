@@ -30,7 +30,7 @@ public class GabeManager : MonoBehaviour
         switch (currentlyActivatedMirrors)
         {
             case mirrorsActivated.NONE:
-                lookScript.m_Target = player;
+                lookScript.m_Target = null;
                 break;
             case mirrorsActivated.MIRROR1:
                 lookScript.m_Target = mirror1;
@@ -42,7 +42,7 @@ public class GabeManager : MonoBehaviour
                 lookScript.m_Target = pedestal;
                 break;
             default:
-                lookScript.m_Target = player;
+                lookScript.m_Target = null;
                 break;
         }
     }
