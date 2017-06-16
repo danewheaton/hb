@@ -19,7 +19,7 @@ public enum PlayerStates
 
 public class PlayerTeleportation : MonoBehaviour
 {
-    public GameObject directionalLight, flamingo, flamingoLegs, donut1, donut2, flamingoTrigger, startingDoorTrigger,
+    public GameObject observatoryMirror1, observatoryMirror2, pedestal, directionalLight, flamingo, flamingoLegs, donut1, donut2, flamingoTrigger, startingDoorTrigger,
         startingDoorTriggerClockwise, glass0, glass0Copy, startingDoor, startingDoorBlocker, hallwayTrigger, hallwayWall01,
         hallwayWall02, teleporterTrigger01, triggerAfterTeleporter01, wallBlockingWay, teleporterTrigger02Right, teleporterTrigger02Left, narthexDoor,
         narthexDoorTrigger, narthexDoorBlocker, glass1Activator, glass1perspectivePuzzle, glass1gameObject, invisibleDoor01, invisibleDoor01Blocker,
@@ -33,6 +33,7 @@ public class PlayerTeleportation : MonoBehaviour
     public Transform[] flamingoTransforms, playerStarts;
     public Material beigeMaterial, whiteMaterial, oldCourtyardMaterial, invisibleMaterial;
     public Credits creditsPanel;
+    public GabeManager gabe;
 
     List<Renderer> flamingoRenderers = new List<Renderer>();
     List<Material> flamingoMaterials = new List<Material>(), legMaterials = new List<Material>();
@@ -63,7 +64,7 @@ public class PlayerTeleportation : MonoBehaviour
 
     void Update()
     {
-        print(Vector3.Distance(transform.position, altar.transform.position));
+        //print(Vector3.Distance(transform.position, altar.transform.position));
 
         if (Vector3.Distance(transform.position, altar.transform.position) < 1)
         {
@@ -195,7 +196,48 @@ public class PlayerTeleportation : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == startingDoorTrigger || other.gameObject == startingDoorTriggerClockwise)
+        if (other == observatoryMirror1)
+        {
+            switch (gabe.CurrentlyActivatedMirrors)
+            {
+                case mirrorsActivated.NONE:
+                    gabe.ActivateMirror(mirrorsActivated.MIRROR1);
+                    break;
+                case mirrorsActivated.MIRROR1:
+                    break;
+                case mirrorsActivated.MIRROR2:
+                    gabe.ActivateMirror(mirrorsActivated.BOTH_MIRRORS);
+                    break;
+                case mirrorsActivated.BOTH_MIRRORS:
+                    break;
+                default:
+                    break;
+            }
+        }
+        else if (other == observatoryMirror2)
+        {
+            switch (gabe.CurrentlyActivatedMirrors)
+            {
+                case mirrorsActivated.NONE:
+                    gabe.ActivateMirror(mirrorsActivated.MIRROR2);
+                    break;
+                case mirrorsActivated.MIRROR1:
+                    gabe.ActivateMirror(mirrorsActivated.BOTH_MIRRORS);
+                    break;
+                case mirrorsActivated.MIRROR2:
+                    break;
+                case mirrorsActivated.BOTH_MIRRORS:
+                    break;
+                default:
+                    break;
+            }
+        }
+        else if (other == pedestal)
+        {
+            gabe.playerIsStandingOnPedestal = true;
+        }
+
+        else if (other.gameObject == startingDoorTrigger || other.gameObject == startingDoorTriggerClockwise)
         {
             Vector3 targetDirection = laps >= scrawlings.Length ?
                 startingDoor.transform.position - transform.position :
@@ -532,6 +574,11 @@ public class PlayerTeleportation : MonoBehaviour
                 mirror.GetComponentInChildren<Mirror>().PlayerIsOnFarSideOfTableOrLookingAway();
                 mirrorDoor2Blocker.SetActive(true);
             }
+        }
+
+        if (other == pedestal)
+        {
+            gabe.playerIsStandingOnPedestal = false;
         }
     }
 
