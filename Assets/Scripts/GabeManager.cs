@@ -15,18 +15,13 @@ public class GabeManager : MonoBehaviour
     [SerializeField] LookatTarget lookScript;
     [SerializeField] Rigidbody shard;
 
-    private void Start()
-    {
-        lookScript.m_Target = player.transform;
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == player.gameObject)
         {
             
-            if (currentlyActivatedMirrors != mirrorsActivated.BOTH_MIRRORS) lookScript.m_Target = player;
-            else if (playerIsStandingOnPedestal) StartCoroutine(Shake());
+            if (!playerIsStandingOnPedestal) lookScript.m_Target = player;
+            else StartCoroutine(Shake());
         }
     }
 
