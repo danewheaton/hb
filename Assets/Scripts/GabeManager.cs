@@ -21,7 +21,7 @@ public class GabeManager : MonoBehaviour
         {
             
             if (!playerIsStandingOnPedestal) lookScript.m_Target = player;
-            else StartCoroutine(Shake());
+            if (currentlyActivatedMirrors == mirrorsActivated.BOTH_MIRRORS) StartCoroutine(Shake());
         }
     }
 
