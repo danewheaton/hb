@@ -15,12 +15,14 @@ public class GabeManager : MonoBehaviour
     [SerializeField] LookatTarget lookScript;
     [SerializeField] Rigidbody shard;
 
-    
-    
-
     private void Start()
     {
         lookScript.m_Target = player.transform;
+    }
+
+    private void Update()
+    {
+        print(currentlyActivatedMirrors);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -56,21 +58,8 @@ public class GabeManager : MonoBehaviour
 
     public void ActivateMirror(mirrorsActivated mirror)
     {
-        switch (mirror)
-        {
-            case mirrorsActivated.MIRROR1:
-                currentlyActivatedMirrors = mirrorsActivated.MIRROR1;
-                break;
-            case mirrorsActivated.MIRROR2:
-                currentlyActivatedMirrors = mirrorsActivated.MIRROR2;
-                break;
-            case mirrorsActivated.BOTH_MIRRORS:
-                currentlyActivatedMirrors = mirrorsActivated.BOTH_MIRRORS;
-                break;
-            default:
-                currentlyActivatedMirrors = mirrorsActivated.NONE;
-                break;
-        }
+        print("should change currentlyActivatedMirrors");
+        currentlyActivatedMirrors = mirror;
     }
 
     IEnumerator Shake()

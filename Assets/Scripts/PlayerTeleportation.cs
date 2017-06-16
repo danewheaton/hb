@@ -198,6 +198,7 @@ public class PlayerTeleportation : MonoBehaviour
     {
         if (other == observatoryMirror1)
         {
+            print("should have entered observatoryMirror1 trigger");
             switch (gabe.CurrentlyActivatedMirrors)
             {
                 case mirrorsActivated.NONE:
@@ -214,8 +215,9 @@ public class PlayerTeleportation : MonoBehaviour
                     break;
             }
         }
-        else if (other == observatoryMirror2)
+        else if (other.gameObject == observatoryMirror2)
         {
+            print("should have entered observatoryMirror2 trigger");
             switch (gabe.CurrentlyActivatedMirrors)
             {
                 case mirrorsActivated.NONE:
@@ -232,7 +234,7 @@ public class PlayerTeleportation : MonoBehaviour
                     break;
             }
         }
-        else if (other == pedestal)
+        else if (other.gameObject == pedestal)
         {
             gabe.playerIsStandingOnPedestal = true;
         }
