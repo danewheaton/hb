@@ -20,15 +20,11 @@ public class GabeManager : MonoBehaviour
         lookScript.m_Target = player.transform;
     }
 
-    private void Update()
-    {
-        print(currentlyActivatedMirrors);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == player)
+        if (other.gameObject == player.gameObject)
         {
+            
             if (currentlyActivatedMirrors != mirrorsActivated.BOTH_MIRRORS) lookScript.m_Target = player;
             else if (playerIsStandingOnPedestal) StartCoroutine(Shake());
         }
@@ -66,9 +62,11 @@ public class GabeManager : MonoBehaviour
         float timer = 2;
         float elapsedTime = 0;
 
+        Vector3 originalPos = lookScript.transform.position;
+
         while (elapsedTime < timer)
         {
-            lookScript.transform.position = Random.insideUnitSphere;
+            lookScript.transform.position = originalPos + Random.insideUnitSphere * .2f;
 
             yield return new WaitForEndOfFrame();
             elapsedTime += Time.deltaTime;
