@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 // Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
 
 Shader "Colr/Master Shader" {
@@ -137,7 +139,7 @@ Shader "Colr/Master Shader" {
 				v2f o;
 
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.pos = UnityObjectToClipPos(v.vertex);
 
 				half3 normal = normalize(mul(unity_ObjectToWorld, half4(v.normal, 0))).xyz;
 
