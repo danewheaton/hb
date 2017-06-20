@@ -16,6 +16,7 @@ public class GabeManager : MonoBehaviour
     public LookatTarget lookScript;
     [SerializeField] Rigidbody shard;
     [SerializeField] Transform playerTracker;
+    [SerializeField] OrbitScript rightEye, leftEye;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -74,5 +75,7 @@ public class GabeManager : MonoBehaviour
 
         currentlyActivatedMirrors = mirrorsActivated.PUZZLE_COMPLETE;
         lookScript.m_Target = player;
+        rightEye.YDPS = 0;
+        leftEye.YDPS = 0;
     }
 }
