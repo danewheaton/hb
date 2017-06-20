@@ -1,11 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CameraShake1.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\UFPS\Base\Scripts\Gameplay\Inventory\vp_ItemPickup.cs">
     <Files>
       <File FileName="Assets\MagicMirror\Prefab\MirrorReflectionScript.cs" Line="1" Column="1" />
       <File FileName="Assets\MagicMirror\Prefab\MirrorCameraScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\StencilGeoColr 1.shader" Line="1" Column="1" />
       <File FileName="Assets\Scripts\CameraShake1.cs" Line="1" Column="1" />
+      <File FileName="Assets\UFPS\Base\Scripts\Gameplay\Inventory\vp_ItemPickup.cs" Line="382" Column="7" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
