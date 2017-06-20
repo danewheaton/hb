@@ -375,22 +375,22 @@ public class vp_ItemPickup : MonoBehaviour
 	{
 
 		// restore rigidbody + colliders
-		if (Rigidbody != null)
-		{
-			Rigidbody.isKinematic = false;
-			foreach (Collider c in Colliders)
-			{
-				if (c.isTrigger)
-					continue;
-				c.enabled = true;
-			}
-		}
-
-		Renderer.enabled = true;
-		m_Depleted = false;
-		m_AlreadyFailed = false;
-
-		vp_GlobalEvent<vp_ItemPickup>.Send("TransmitPickupRespawn", this);	// will only have effect in multiplayer
+//		if (Rigidbody != null)
+//		{
+//			Rigidbody.isKinematic = false;
+//			foreach (Collider c in Colliders)
+//			{
+//				if (c.isTrigger)
+//					continue;
+//				c.enabled = true;
+//			}
+//		}
+//
+//		Renderer.enabled = true;
+//		m_Depleted = false;
+//		m_AlreadyFailed = false;
+//
+//		vp_GlobalEvent<vp_ItemPickup>.Send("TransmitPickupRespawn", this);	// will only have effect in multiplayer
 
 	}
 
