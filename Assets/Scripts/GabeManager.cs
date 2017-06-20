@@ -18,8 +18,15 @@ public class GabeManager : MonoBehaviour
     [SerializeField] Transform playerTracker;
     [SerializeField] OrbitScript rightEye, leftEye;
 
+    bool followingPlayer;
+    Vector3 targetPosition;
+
     private void Update()
     {
+        if (followingPlayer) targetPosition = player.position;
+
+        playerTracker.position = Vector3.Lerp(playerTracker.position, targetPosition, 3 * Time.deltaTime);
+
         if (currentlyActivatedMirrors == mirrorsActivated.BOTH_MIRRORS && playerIsStandingOnPedestal && Vector3.Angle(player.transform.position - lookScript.transform.position, player.transform.forward) > 120)
         {
             StartCoroutine(Shake());
@@ -28,32 +35,29 @@ public class GabeManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == player.gameObject && !playerIsStandingOnPedestal)
-        {
-            lookScript.m_Target = player;
-        }
+        followingPlayer = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
+        followingPlayer = false;
+
         switch (currentlyActivatedMirrors)
         {
             case mirrorsActivated.NONE:
-                playerTracker.position = player.position;
-                lookScript.m_Target = playerTracker;
+                targetPosition = player.position;
                 break;
             case mirrorsActivated.MIRROR1:
-                lookScript.m_Target = leftMirror;
+                targetPosition = leftMirror.position;
                 break;
             case mirrorsActivated.MIRROR2:
-                lookScript.m_Target = rightMirror;
+                targetPosition = rightMirror.position;
                 break;
             case mirrorsActivated.BOTH_MIRRORS:
-                lookScript.m_Target = pedestal;
+                targetPosition = pedestal.position;
                 break;
             default:
-                playerTracker.position = player.position;
-                lookScript.m_Target = playerTracker;
+                targetPosition = player.position;
                 break;
         }
     }
