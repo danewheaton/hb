@@ -57,7 +57,7 @@ namespace UnityStandardAssets.Cameras
                                            m_FollowAngles.y + Mathf.DeltaAngle(m_FollowAngles.y, yAngle));
 
             // smoothly interpolate the current angles to the target angles
-            m_FollowAngles = Vector3.SmoothDamp(m_FollowAngles, targetAngles, ref m_FollowVelocity, m_FollowSpeed);
+            m_FollowAngles = Vector3.SmoothDamp(m_FollowAngles, targetAngles, ref m_FollowVelocity, m_FollowSpeed * Time.deltaTime);
 
 
             // and update the gameobject itself

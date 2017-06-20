@@ -11,10 +11,11 @@ public class GabeManager : MonoBehaviour
     mirrorsActivated currentlyActivatedMirrors = mirrorsActivated.NONE;
     public mirrorsActivated CurrentlyActivatedMirrors { get { return currentlyActivatedMirrors; } }
 
-    public GameObject alsoYouLeftMirror, alsoYouRightMirror;
+    public GameObject alsoYouLeftMirror, alsoYouRightMirror, alsoAlsoYouLeftMirror, alsoAlsoYouRightMirror;
     [SerializeField] Transform player, leftMirror, rightMirror, pedestal;
-    [SerializeField] LookatTarget lookScript;
+    public LookatTarget lookScript;
     [SerializeField] Rigidbody shard;
+    [SerializeField] Transform playerTracker;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -29,7 +30,8 @@ public class GabeManager : MonoBehaviour
         switch (currentlyActivatedMirrors)
         {
             case mirrorsActivated.NONE:
-                lookScript.m_Target = null;
+                playerTracker.position = player.position;
+                lookScript.m_Target = playerTracker;
                 break;
             case mirrorsActivated.MIRROR1:
                 lookScript.m_Target = leftMirror;
@@ -41,7 +43,8 @@ public class GabeManager : MonoBehaviour
                 lookScript.m_Target = pedestal;
                 break;
             default:
-                lookScript.m_Target = null;
+                playerTracker.position = player.position;
+                lookScript.m_Target = playerTracker;
                 break;
         }
     }
@@ -70,5 +73,6 @@ public class GabeManager : MonoBehaviour
         shard.transform.parent = null;
 
         currentlyActivatedMirrors = mirrorsActivated.PUZZLE_COMPLETE;
+        lookScript.m_Target = player;
     }
 }

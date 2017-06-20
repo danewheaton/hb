@@ -196,18 +196,18 @@ public class PlayerTeleportation : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == observatoryMirror1)
+        if (other.gameObject == observatoryMirror1 && Vector3.Angle(transform.position - gabe.lookScript.transform.position, transform.forward) < 60)
         {
-            gabe.alsoYouLeftMirror.SetActive(true);
-
             switch (gabe.CurrentlyActivatedMirrors)
             {
                 case mirrorsActivated.NONE:
+                    gabe.alsoYouLeftMirror.SetActive(true);
                     gabe.ActivateMirror(mirrorsActivated.MIRROR1);
                     break;
                 case mirrorsActivated.MIRROR1:
                     break;
                 case mirrorsActivated.MIRROR2:
+                    gabe.alsoAlsoYouLeftMirror.SetActive(true);
                     gabe.ActivateMirror(mirrorsActivated.BOTH_MIRRORS);
                     break;
                 case mirrorsActivated.BOTH_MIRRORS:
@@ -216,16 +216,16 @@ public class PlayerTeleportation : MonoBehaviour
                     break;
             }
         }
-        else if (other.gameObject == observatoryMirror2)
+        else if (other.gameObject == observatoryMirror2 && Vector3.Angle(transform.position - gabe.lookScript.transform.position, transform.forward) < 60)
         {
-            gabe.alsoYouRightMirror.SetActive(true);
-
             switch (gabe.CurrentlyActivatedMirrors)
             {
                 case mirrorsActivated.NONE:
+                    gabe.alsoYouRightMirror.SetActive(true);
                     gabe.ActivateMirror(mirrorsActivated.MIRROR2);
                     break;
                 case mirrorsActivated.MIRROR1:
+                    gabe.alsoAlsoYouRightMirror.SetActive(true);
                     gabe.ActivateMirror(mirrorsActivated.BOTH_MIRRORS);
                     break;
                 case mirrorsActivated.MIRROR2:
@@ -236,7 +236,7 @@ public class PlayerTeleportation : MonoBehaviour
                     break;
             }
         }
-        else if (other.gameObject == pedestal && gabe.CurrentlyActivatedMirrors == mirrorsActivated.BOTH_MIRRORS)
+        else if (other.gameObject == pedestal && gabe.CurrentlyActivatedMirrors == mirrorsActivated.BOTH_MIRRORS && Vector3.Angle(transform.position - gabe.lookScript.transform.position, transform.forward) > 90)
         {
             StartCoroutine(gabe.Shake());
         }
