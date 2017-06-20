@@ -82,6 +82,8 @@ public class GabeManager : MonoBehaviour
             elapsedTime += Time.deltaTime;
         }
 
+        lookScript.transform.position = originalPos;
+
         shard.isKinematic = false;
         shard.transform.parent = null;
 
