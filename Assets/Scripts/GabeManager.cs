@@ -18,6 +18,14 @@ public class GabeManager : MonoBehaviour
     [SerializeField] Transform playerTracker;
     [SerializeField] OrbitScript rightEye, leftEye;
 
+    private void Update()
+    {
+        if (currentlyActivatedMirrors == mirrorsActivated.BOTH_MIRRORS && playerIsStandingOnPedestal && Vector3.Angle(player.transform.position - lookScript.transform.position, player.transform.forward) > 120)
+        {
+            StartCoroutine(Shake());
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == player.gameObject && !playerIsStandingOnPedestal)
@@ -74,7 +82,9 @@ public class GabeManager : MonoBehaviour
         shard.transform.parent = null;
 
         currentlyActivatedMirrors = mirrorsActivated.PUZZLE_COMPLETE;
-        lookScript.m_Target = player;
+
+        playerTracker.position = player.position;
+        lookScript.m_Target = playerTracker;
         rightEye.YDPS = 0;
         leftEye.YDPS = 0;
     }
