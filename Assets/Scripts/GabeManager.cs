@@ -97,7 +97,8 @@ public class GabeManager : MonoBehaviour
         currentlyActivatedMirrors = mirrorsActivated.PUZZLE_COMPLETE;
 
         playerTracker.position = player.position;
-        lookScript.m_Target = playerTracker;
+        lookScript.enabled = false;
+        //lookScript.m_Target = playerTracker;
         rightEye.YDPS = 0;
         leftEye.YDPS = 0;
     }
