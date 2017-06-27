@@ -334,7 +334,7 @@ public class PlayerTeleportation : MonoBehaviour
             transform.position = playerStarts[4].position;
             transform.localScale = originalScale;
             GetComponent<vp_FPController>().MotorAcceleration = .12f;
-            foreach (GameObject g in observatoryMirrors) g.SetActive(true);
+            //foreach (GameObject g in observatoryMirrors) g.SetActive(true);
             staticAssets.SetActive(false);
             dynamicAssets.SetActive(false);
         }
@@ -580,7 +580,7 @@ public class PlayerTeleportation : MonoBehaviour
             }
         }
 
-        if (other == pedestal)
+        if (other.gameObject == pedestal)
         {
             gabe.playerIsStandingOnPedestal = false;
         }
