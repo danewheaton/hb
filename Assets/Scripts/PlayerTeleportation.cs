@@ -364,8 +364,7 @@ public class PlayerTeleportation : MonoBehaviour
                     (1 << LayerMask.NameToLayer("Portal01")));
 
                 Renderer[] renderers = newChurch.GetComponentsInChildren<Renderer>();
-
-                print("flamingo should be invisible");
+                
 				foreach (Renderer r in flamingo.GetComponentsInChildren<Renderer>())
 					r.material = invisibleMaterial;
                     //r.material = renderers[0].material;
