@@ -59,8 +59,6 @@ public class SoundFeedback : MonoBehaviour
 
         volume = Mathf.Abs((volumeRatio / distanceRatio) / 100);
 
-        print(player.transform.position.y);
-
         if (player.transform.position.y < -1 && volume < 1)
         {
             if (player.transform.position.y < -9 && !fadeOutMusic) StartCoroutine(FadeMusic());
