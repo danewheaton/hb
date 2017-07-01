@@ -45,7 +45,7 @@ public class GabeManager : MonoBehaviour
             currentlyActivatedMirrors == mirrorsActivated.MIRROR2) &&
             followingPlayer)
         {
-            lookScript.transform.position = originalPos1 + Random.insideUnitSphere * .01f;
+            lookScript.transform.position = originalPos1 + Random.insideUnitSphere * .02f;
         }
     }
 

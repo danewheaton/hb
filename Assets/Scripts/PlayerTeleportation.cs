@@ -337,8 +337,9 @@ public class PlayerTeleportation : MonoBehaviour
 
         else if (other.gameObject == altarTeleporter)
         {
+            creditsPanel.FlashWhite();
+
             transform.position = playerStarts[4].position;
-			creditsPanel.FlashWhite ();
             transform.localScale = originalScale;
             GetComponent<vp_FPController>().MotorAcceleration = .12f;
             //foreach (GameObject g in observatoryMirrors) g.SetActive(true);
