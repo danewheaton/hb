@@ -12,19 +12,18 @@ public class GabeManager : MonoBehaviour
     public mirrorsActivated CurrentlyActivatedMirrors { get { return currentlyActivatedMirrors; } }
 
     public GameObject alsoYouLeftMirror, alsoYouRightMirror, alsoAlsoYouLeftMirror, alsoAlsoYouRightMirror;
-    [SerializeField] Transform player, leftMirror, rightMirror, pedestal;
+    [SerializeField] Transform player, leftMirror, rightMirror, pedestal, leftPillar, rightPillar;
     public LookatTarget lookScript;
     [SerializeField] Rigidbody shard;
     [SerializeField] Transform playerTracker;
     [SerializeField] OrbitScript rightEye, leftEye;
+    [SerializeField] float timeBetweenPillars = .5f;
 
     bool followingPlayer, startedShaking;
     Vector3 targetPosition;
 
     private void Update()
     {
-        print(playerIsStandingOnPedestal);
-
         if (followingPlayer) targetPosition = player.position;
 
         playerTracker.position = Vector3.Lerp(playerTracker.position, targetPosition, 3 * Time.deltaTime);
@@ -59,7 +58,8 @@ public class GabeManager : MonoBehaviour
                 targetPosition = rightMirror.position;
                 break;
             case mirrorsActivated.BOTH_MIRRORS:
-                targetPosition = pedestal.position;
+                targetPosition = leftPillar.position;
+                InvokeRepeating("SwitchTargetBetweenLeftAndRightPillar", 0, timeBetweenPillars);
                 break;
             default:
                 targetPosition = player.position;
@@ -72,8 +72,41 @@ public class GabeManager : MonoBehaviour
         currentlyActivatedMirrors = mirror;
     }
 
+    void SwitchTargetBetweenLeftAndRightPillar()
+    {
+        if (targetPosition == leftPillar.position)
+        {
+            targetPosition = rightPillar.position;
+        }
+        else if (targetPosition == rightPillar.position)
+        {
+            targetPosition = leftPillar.position;
+        }
+
+        StartCoroutine(ShakeALittleBit());
+    }
+
+    IEnumerator ShakeALittleBit()
+    {
+        float elapsedTime = 0;
+
+        Vector3 originalPos = lookScript.transform.position;
+
+        while (elapsedTime < timeBetweenPillars)
+        {
+            lookScript.transform.position = originalPos + Random.insideUnitSphere * .1f;
+
+            yield return new WaitForEndOfFrame();
+            elapsedTime += Time.deltaTime;
+        }
+
+        lookScript.transform.position = originalPos;
+    }
+
     public IEnumerator Shake()
     {
+        CancelInvoke("SwitchTargetBetweenLeftAndRightPillar");
+        targetPosition = pedestal.position;
         startedShaking = true;
 
         float timer = 2;
