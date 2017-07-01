@@ -356,9 +356,22 @@ public class PlayerTeleportation : MonoBehaviour
 
         else if (other.gameObject == glass1gameObject)
         {
-            Vector3 targetDirection = invisibleDoor01.transform.position - transform.position;
+            Vector3 targetDirection = transform.position - invisibleDoor01.transform.position;
 
-            if (Vector3.Angle(targetDirection, transform.forward) < 90)
+            RaycastHit[] hits;
+            Ray ray = new Ray(Camera.main.transform.position, transform.forward);
+            hits = Physics.RaycastAll(ray, 2);
+
+            bool inFrontOfMirror = false;
+
+            foreach (RaycastHit hit in hits)
+            {
+                if (hit.transform.gameObject == glass1gameObject)
+                    inFrontOfMirror = true;
+                else inFrontOfMirror = false;
+            }
+
+            if (Vector3.Angle(targetDirection, transform.forward) > 90 && inFrontOfMirror)
             {
                 StartCoroutine(creditsPanel.FlashWhite());
 
