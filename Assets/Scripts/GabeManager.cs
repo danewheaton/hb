@@ -20,7 +20,12 @@ public class GabeManager : MonoBehaviour
     [SerializeField] float timeBetweenPillars = .5f;
 
     bool followingPlayer, startedShaking;
-    Vector3 targetPosition;
+    Vector3 targetPosition, originalPos1;
+
+    private void Start()
+    {
+        originalPos1 = lookScript.transform.position;
+    }
 
     private void Update()
     {
@@ -34,6 +39,13 @@ public class GabeManager : MonoBehaviour
             Vector3.Angle(player.transform.position - lookScript.transform.position, player.transform.forward) > 120)
         {
             StartCoroutine(Shake());
+        }
+
+        if ((currentlyActivatedMirrors == mirrorsActivated.MIRROR1 ||
+            currentlyActivatedMirrors == mirrorsActivated.MIRROR2) &&
+            followingPlayer)
+        {
+            lookScript.transform.position = originalPos1 + Random.insideUnitSphere * .01f;
         }
     }
 

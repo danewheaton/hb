@@ -39,7 +39,7 @@ public class PlayerTeleportation : MonoBehaviour
     List<Material> flamingoMaterials = new List<Material>(), legMaterials = new List<Material>();
     Material invisibleFlamingoMaterial;
     PlayerStates currentState;
-    Vector3 originalScale, targetScale = new Vector3(.2f, .2f, .2f);
+    Vector3 originalScale, targetScale = new Vector3(.15f, .15f, .15f);
 
     int laps;
     bool flamingoIsVisible, passedThrough, hittingForeground, hittingBackground, wentAroundOnce;
@@ -629,6 +629,7 @@ public class PlayerTeleportation : MonoBehaviour
 
             StartCoroutine(creditsPanel.FlashWhite());
             glass1perspectivePuzzle.SetActive(false);
+            playerStarts[1].gameObject.SetActive(false);
             glass1gameObject.SetActive(true);
         }
     }
