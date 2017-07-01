@@ -158,8 +158,8 @@ public class PlayerTeleportation : MonoBehaviour
         if (mirrorDoor2Blocker.activeInHierarchy) glass2.GetComponent<Renderer>().enabled = false;
         else glass2.GetComponent<Renderer>().enabled = true;
 
-        if (Application.isEditor)
-        {
+//        if (Application.isEditor)
+//        {
             if (Input.GetKeyDown(KeyCode.K)) transform.position = playerStarts[1].position;
             if (Input.GetKeyDown(KeyCode.L))
             {
@@ -188,8 +188,10 @@ public class PlayerTeleportation : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.K)) transform.position = playerStarts[1].position;
             if (Input.GetKeyDown(KeyCode.L)) transform.position = playerStarts[2].position;
             if (Input.GetKeyDown(KeyCode.Semicolon)) transform.position = playerStarts[3].position;
-        }
+//        }
     }
+
+
 
 
 
@@ -200,14 +202,16 @@ public class PlayerTeleportation : MonoBehaviour
         {
             switch (gabe.CurrentlyActivatedMirrors)
             {
-                case mirrorsActivated.NONE:
-                    gabe.alsoYouLeftMirror.SetActive(true);
+			case mirrorsActivated.NONE:
+					gabe.alsoYouLeftMirror.SetActive (true);
+					creditsPanel.FlashWhite ();
                     gabe.ActivateMirror(mirrorsActivated.MIRROR1);
                     break;
                 case mirrorsActivated.MIRROR1:
                     break;
                 case mirrorsActivated.MIRROR2:
                     gabe.alsoAlsoYouLeftMirror.SetActive(true);
+					creditsPanel.FlashWhite ();
                     gabe.ActivateMirror(mirrorsActivated.BOTH_MIRRORS);
                     break;
                 case mirrorsActivated.BOTH_MIRRORS:
@@ -222,10 +226,12 @@ public class PlayerTeleportation : MonoBehaviour
             {
                 case mirrorsActivated.NONE:
                     gabe.alsoYouRightMirror.SetActive(true);
+					creditsPanel.FlashWhite ();
                     gabe.ActivateMirror(mirrorsActivated.MIRROR2);
                     break;
                 case mirrorsActivated.MIRROR1:
                     gabe.alsoAlsoYouRightMirror.SetActive(true);
+					creditsPanel.FlashWhite ();
                     gabe.ActivateMirror(mirrorsActivated.BOTH_MIRRORS);
                     break;
                 case mirrorsActivated.MIRROR2:
@@ -332,6 +338,7 @@ public class PlayerTeleportation : MonoBehaviour
         else if (other.gameObject == altarTeleporter)
         {
             transform.position = playerStarts[4].position;
+			creditsPanel.FlashWhite ();
             transform.localScale = originalScale;
             GetComponent<vp_FPController>().MotorAcceleration = .12f;
             foreach (GameObject g in observatoryMirrors) g.SetActive(true);
