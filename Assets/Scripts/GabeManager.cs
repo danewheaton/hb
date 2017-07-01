@@ -17,7 +17,6 @@ public class GabeManager : MonoBehaviour
     [SerializeField] Rigidbody shard;
     [SerializeField] Transform playerTracker;
     [SerializeField] OrbitScript rightEye, leftEye;
-    [SerializeField] Material gabeMaterial;
     [SerializeField] float timeBetweenPillars = .5f;
 
     bool followingPlayer, startedShaking;
@@ -150,9 +149,9 @@ public class GabeManager : MonoBehaviour
 
         rightEye.gameObject.layer = LayerMask.NameToLayer("Gabe");
         leftEye.gameObject.layer = LayerMask.NameToLayer("Gabe");
-        rightEye.gameObject.SetActive(false);
-        leftEye.gameObject.SetActive(false);
-        deadEyeLeft.SetActive(true);
-        deadEyeRight.SetActive(true);
+        rightEye.GetComponent<Renderer>().enabled = false;
+        leftEye.GetComponent<Renderer>().enabled = false;
+        deadEyeLeft.GetComponent<Renderer>().enabled = true;
+        deadEyeRight.GetComponent<Renderer>().enabled = true;
     }
 }
