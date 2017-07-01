@@ -337,7 +337,7 @@ public class PlayerTeleportation : MonoBehaviour
 
         else if (other.gameObject == altarTeleporter)
         {
-            creditsPanel.FlashWhite();
+            StartCoroutine(creditsPanel.FlashWhite());
 
             transform.position = playerStarts[4].position;
             transform.localScale = originalScale;
