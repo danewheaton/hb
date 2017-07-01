@@ -204,14 +204,14 @@ public class PlayerTeleportation : MonoBehaviour
             {
 			case mirrorsActivated.NONE:
 					gabe.alsoYouLeftMirror.SetActive (true);
-					creditsPanel.FlashWhite ();
+					StartCoroutine(creditsPanel.FlashWhite());
                     gabe.ActivateMirror(mirrorsActivated.MIRROR1);
                     break;
                 case mirrorsActivated.MIRROR1:
                     break;
                 case mirrorsActivated.MIRROR2:
                     gabe.alsoAlsoYouLeftMirror.SetActive(true);
-					creditsPanel.FlashWhite ();
+                    StartCoroutine(creditsPanel.FlashWhite());
                     gabe.ActivateMirror(mirrorsActivated.BOTH_MIRRORS);
                     break;
                 case mirrorsActivated.BOTH_MIRRORS:
@@ -226,12 +226,12 @@ public class PlayerTeleportation : MonoBehaviour
             {
                 case mirrorsActivated.NONE:
                     gabe.alsoYouRightMirror.SetActive(true);
-					creditsPanel.FlashWhite ();
+                    StartCoroutine(creditsPanel.FlashWhite());
                     gabe.ActivateMirror(mirrorsActivated.MIRROR2);
                     break;
                 case mirrorsActivated.MIRROR1:
                     gabe.alsoAlsoYouRightMirror.SetActive(true);
-					creditsPanel.FlashWhite ();
+                    StartCoroutine(creditsPanel.FlashWhite());
                     gabe.ActivateMirror(mirrorsActivated.BOTH_MIRRORS);
                     break;
                 case mirrorsActivated.MIRROR2:
