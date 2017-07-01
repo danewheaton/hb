@@ -62,7 +62,7 @@ public class GabeManager : MonoBehaviour
                 InvokeRepeating("SwitchTargetBetweenLeftAndRightPillar", 0, timeBetweenPillars);
                 break;
             default:
-                targetPosition = player.position;
+                //targetPosition = player.position;
                 break;
         }
     }
