@@ -250,7 +250,9 @@ public class PlayerTeleportation : MonoBehaviour
         else if (other.gameObject == observatoryPortalTrigger)
         {
             transform.position = perchTransform.position;
-            
+
+            staticAssets.SetActive(true);
+            dynamicAssets.SetActive(true);
         }
 
         else if (other.gameObject == startingDoorTrigger || other.gameObject == startingDoorTriggerClockwise)
