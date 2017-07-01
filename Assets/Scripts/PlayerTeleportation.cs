@@ -341,7 +341,7 @@ public class PlayerTeleportation : MonoBehaviour
 			creditsPanel.FlashWhite ();
             transform.localScale = originalScale;
             GetComponent<vp_FPController>().MotorAcceleration = .12f;
-            foreach (GameObject g in observatoryMirrors) g.SetActive(true);
+            //foreach (GameObject g in observatoryMirrors) g.SetActive(true);
             staticAssets.SetActive(false);
             dynamicAssets.SetActive(false);
         }
@@ -371,7 +371,7 @@ public class PlayerTeleportation : MonoBehaviour
                     (1 << LayerMask.NameToLayer("Portal01")));
 
                 Renderer[] renderers = newChurch.GetComponentsInChildren<Renderer>();
-
+                
 				foreach (Renderer r in flamingo.GetComponentsInChildren<Renderer>())
 					r.material = invisibleMaterial;
                     //r.material = renderers[0].material;
@@ -587,7 +587,7 @@ public class PlayerTeleportation : MonoBehaviour
             }
         }
 
-        if (other == pedestal)
+        if (other.gameObject == pedestal)
         {
             gabe.playerIsStandingOnPedestal = false;
         }

@@ -79,6 +79,8 @@ public class SoundFeedback : MonoBehaviour
 
     IEnumerator FadeMusic()
     {
+        print("music should fade out");
+
         fadeOutMusic = true;
 
         float timer = 3;

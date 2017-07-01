@@ -18,16 +18,21 @@ public class GabeManager : MonoBehaviour
     [SerializeField] Transform playerTracker;
     [SerializeField] OrbitScript rightEye, leftEye;
 
-    bool followingPlayer;
+    bool followingPlayer, startedShaking;
     Vector3 targetPosition;
 
     private void Update()
     {
+        print(playerIsStandingOnPedestal);
+
         if (followingPlayer) targetPosition = player.position;
 
         playerTracker.position = Vector3.Lerp(playerTracker.position, targetPosition, 3 * Time.deltaTime);
 
-        if (currentlyActivatedMirrors == mirrorsActivated.BOTH_MIRRORS && playerIsStandingOnPedestal && Vector3.Angle(player.transform.position - lookScript.transform.position, player.transform.forward) > 120)
+        if (currentlyActivatedMirrors == mirrorsActivated.BOTH_MIRRORS &&
+            playerIsStandingOnPedestal &&
+            !startedShaking &&
+            Vector3.Angle(player.transform.position - lookScript.transform.position, player.transform.forward) > 120)
         {
             StartCoroutine(Shake());
         }
@@ -69,6 +74,8 @@ public class GabeManager : MonoBehaviour
 
     public IEnumerator Shake()
     {
+        startedShaking = true;
+
         float timer = 2;
         float elapsedTime = 0;
 
@@ -90,7 +97,8 @@ public class GabeManager : MonoBehaviour
         currentlyActivatedMirrors = mirrorsActivated.PUZZLE_COMPLETE;
 
         playerTracker.position = player.position;
-        lookScript.m_Target = playerTracker;
+        lookScript.enabled = false;
+        //lookScript.m_Target = playerTracker;
         rightEye.YDPS = 0;
         leftEye.YDPS = 0;
     }
