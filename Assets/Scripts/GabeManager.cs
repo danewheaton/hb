@@ -94,7 +94,7 @@ public class GabeManager : MonoBehaviour
 
         while (elapsedTime < timeBetweenPillars)
         {
-            lookScript.transform.position = originalPos + Random.insideUnitSphere * .1f;
+            lookScript.transform.position = originalPos + Random.insideUnitSphere * .05f;
 
             yield return new WaitForEndOfFrame();
             elapsedTime += Time.deltaTime;
