@@ -19,7 +19,7 @@ public enum PlayerStates
 
 public class PlayerTeleportation : MonoBehaviour
 {
-    public GameObject observatoryMirror1, observatoryMirror2, pedestal, directionalLight, flamingo, flamingoLegs, donut1, donut2, flamingoTrigger, startingDoorTrigger,
+    public GameObject observatoryPortalTrigger, observatoryMirror1, observatoryMirror2, pedestal, directionalLight, flamingo, flamingoLegs, donut1, donut2, flamingoTrigger, startingDoorTrigger,
         startingDoorTriggerClockwise, glass0, glass0Copy, startingDoor, startingDoorBlocker, hallwayTrigger, hallwayWall01,
         hallwayWall02, teleporterTrigger01, triggerAfterTeleporter01, wallBlockingWay, teleporterTrigger02Right, teleporterTrigger02Left, narthexDoor,
         narthexDoorTrigger, narthexDoorBlocker, glass1Activator, glass1perspectivePuzzle, glass1gameObject, invisibleDoor01, invisibleDoor01Blocker,
@@ -29,7 +29,7 @@ public class PlayerTeleportation : MonoBehaviour
         doorToCatacombs, doorToCatacombsTrigger, doorAtBottomOfStairwell, doorAtBottomOfStairwellTrigger,
         doorAtBottomOfStairwellBlocker, catacombsUnlit, catacombsLit, endTrigger, staticAssets, dynamicAssets;
     public GameObject[] scrawlings, disappearingPassage, reappearingNook, observatoryMirrors;
-    public Transform startingDoorTransform, teleporter02Transform, glass1Transform, portal01Transform, mirror01Transform;
+    public Transform perchTransform, startingDoorTransform, teleporter02Transform, glass1Transform, portal01Transform, mirror01Transform;
     public Transform[] flamingoTransforms, playerStarts;
     public Material beigeMaterial, whiteMaterial, oldCourtyardMaterial, invisibleMaterial;
     public Credits creditsPanel;
@@ -247,6 +247,12 @@ public class PlayerTeleportation : MonoBehaviour
             gabe.playerIsStandingOnPedestal = true;
         }
 
+        else if (other.gameObject == observatoryPortalTrigger)
+        {
+            transform.position = perchTransform.position;
+            
+        }
+
         else if (other.gameObject == startingDoorTrigger || other.gameObject == startingDoorTriggerClockwise)
         {
             Vector3 targetDirection = laps >= scrawlings.Length ?
@@ -329,11 +335,11 @@ public class PlayerTeleportation : MonoBehaviour
             donut1.SetActive(true);
         }
 
-        else if (other.gameObject == narthexDoorTrigger)
-        {
-            narthexDoor.SetActive(false);
-            narthexDoorBlocker.SetActive(true);
-        }
+        //else if (other.gameObject == narthexDoorTrigger)
+        //{
+        //    narthexDoor.SetActive(false);
+        //    narthexDoorBlocker.SetActive(true);
+        //}
 
         else if (other.gameObject == altarTeleporter)
         {
@@ -590,6 +596,8 @@ public class PlayerTeleportation : MonoBehaviour
 
             hittingBackground = false;
             hittingForeground = false;
+
+            if (glass1gameObject.activeInHierarchy) playerStarts[1].gameObject.SetActive(false);
         }
 
         if (other.gameObject == mirror2Trigger)
@@ -630,7 +638,6 @@ public class PlayerTeleportation : MonoBehaviour
 
             StartCoroutine(creditsPanel.FlashWhite());
             glass1perspectivePuzzle.SetActive(false);
-            playerStarts[1].gameObject.SetActive(false);
             glass1gameObject.SetActive(true);
         }
     }
