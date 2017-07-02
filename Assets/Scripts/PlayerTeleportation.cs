@@ -355,7 +355,7 @@ public class PlayerTeleportation : MonoBehaviour
             dynamicAssets.SetActive(false);
         }
 
-        else if (other.gameObject == glass1Activator) glass1perspectivePuzzle.SetActive(true);
+        //else if (other.gameObject == glass1Activator) glass1perspectivePuzzle.SetActive(true);
 
         //else if (other.gameObject == playerStarts[1].gameObject)
         //{

@@ -7,7 +7,7 @@
       <File FileName="Assets\Scripts\StencilGeoColr 1.shader" Line="1" Column="1" />
       <File FileName="Assets\Scripts\CameraShake1.cs" Line="1" Column="1" />
       <File FileName="Assets\UFPS\Base\Scripts\Gameplay\Inventory\vp_ItemPickup.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PlayerTeleportation.cs" Line="160" Column="3" />
+      <File FileName="Assets\Scripts\PlayerTeleportation.cs" Line="356" Column="10" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

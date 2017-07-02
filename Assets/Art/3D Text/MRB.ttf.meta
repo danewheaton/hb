@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 21e34d38e5bf8b64b9835fd2ccc8b3b8
+timeCreated: 1498953511
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Mr.B
+  fontNames:
+  - Mr.B
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
