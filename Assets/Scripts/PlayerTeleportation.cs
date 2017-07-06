@@ -247,7 +247,7 @@ public class PlayerTeleportation : MonoBehaviour
             gabe.playerIsStandingOnPedestal = true;
         }
 
-        else if (other.gameObject == observatoryPortalTrigger)
+        else if (other.gameObject == observatoryPortalTrigger && GetComponent<ShardZoom>().CanEnterSecretPortal)
         {
             transform.position = perchTransform.position;
 
