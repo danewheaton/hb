@@ -22,6 +22,8 @@ public class GabeManager : MonoBehaviour
     bool followingPlayer, startedShaking;
     Vector3 targetPosition, originalPos1;
 
+	public MonoBehaviour[] gabeZoneEffects;
+
     private void Start()
     {
         originalPos1 = lookScript.transform.position;
@@ -52,6 +54,8 @@ public class GabeManager : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         followingPlayer = true;
+
+		GabeZoneActivate ();
     }
 
     private void OnTriggerExit(Collider other)
@@ -77,6 +81,8 @@ public class GabeManager : MonoBehaviour
                 //targetPosition = player.position;
                 break;
         }
+
+		GabeZoneDeactivate ();
     }
 
     public void ActivateMirror(mirrorsActivated mirror)
@@ -154,4 +160,20 @@ public class GabeManager : MonoBehaviour
         deadEyeLeft.GetComponent<Renderer>().enabled = true;
         deadEyeRight.GetComponent<Renderer>().enabled = true;
     }
+
+	void GabeZoneActivate()
+	{
+		for (int i = 0; i < (gabeZoneEffects.Length); i++)
+		{
+			gabeZoneEffects [i].enabled = true;
+		}
+	}
+
+	void GabeZoneDeactivate()
+	{
+		for (int i = 0; i < (gabeZoneEffects.Length); i++)
+		{
+			gabeZoneEffects [i].enabled = false;
+		}
+	}
 }
