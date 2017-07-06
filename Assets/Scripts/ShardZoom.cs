@@ -31,7 +31,7 @@ public class ShardZoom : MonoBehaviour
 
                 FPPlayer.Zoom.TryStart();
 
-                if (colliders[0] != null && !colliders[0].enabled)
+                if (colliders.Count != 0 && !colliders[0].enabled)
                     ToggleOtherColliders(true);
             }
 

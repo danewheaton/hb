@@ -31,18 +31,19 @@ public class PlayerTeleportation : MonoBehaviour
     public GameObject[] scrawlings, disappearingPassage, reappearingNook, observatoryMirrors;
     public Transform perchTransform, startingDoorTransform, teleporter02Transform, glass1Transform, portal01Transform, mirror01Transform;
     public Transform[] flamingoTransforms, playerStarts;
-    public Material beigeMaterial, whiteMaterial, oldCourtyardMaterial, invisibleMaterial;
+    public Material beigeMaterial, whiteMaterial, oldCourtyardMaterial, invisibleMaterial, correctShardMaterial, fakeShardMaterial;
     public Credits creditsPanel;
     public GabeManager gabe;
 
     List<Renderer> flamingoRenderers = new List<Renderer>();
     List<Material> flamingoMaterials = new List<Material>(), legMaterials = new List<Material>();
-    Material invisibleFlamingoMaterial;
+    Material invisibleFlamingoMaterial, shardMaterial;
     PlayerStates currentState;
     Vector3 originalScale, targetScale = new Vector3(.15f, .15f, .15f);
 
     int laps;
     bool flamingoIsVisible, passedThrough, hittingForeground, hittingBackground, wentAroundOnce;
+    private IEnumerable<Material> materials;
 
     void OnDrawGizmos()
     {
@@ -251,6 +252,13 @@ public class PlayerTeleportation : MonoBehaviour
         {
             transform.position = perchTransform.position;
 
+            Renderer[] renderers = GetComponentsInChildren<Renderer>();
+            foreach (Renderer r in renderers)
+            {
+                if (r.gameObject.name == "TestShard(Clone)")
+                    r.materials[1] = fakeShardMaterial;
+            }
+
             staticAssets.SetActive(true);
             dynamicAssets.SetActive(true);
         }
@@ -353,6 +361,13 @@ public class PlayerTeleportation : MonoBehaviour
             //foreach (GameObject g in observatoryMirrors) g.SetActive(true);
             staticAssets.SetActive(false);
             dynamicAssets.SetActive(false);
+
+            Renderer[] renderers = GetComponentsInChildren<Renderer>();
+            foreach (Renderer r in renderers)
+            {
+                if (r.gameObject.name == "TestShard(Clone)")
+                    r.materials[1] = correctShardMaterial;
+            }
         }
 
         //else if (other.gameObject == glass1Activator) glass1perspectivePuzzle.SetActive(true);
@@ -418,6 +433,16 @@ public class PlayerTeleportation : MonoBehaviour
                 flamingo.transform.rotation = flamingoTransforms[5].rotation;
 
                 glass1gameObject.SetActive(false);
+
+                Renderer[] childRenderers = GetComponentsInChildren<Renderer>();
+                foreach (Renderer r in childRenderers)
+                {
+                    if (r.materials.Length > 1)
+                    {
+                        print("fuuuuuck");
+                        r.materials[1] = correctShardMaterial;
+                    }
+                }
             }
         }
         else if (other.gameObject.layer == LayerMask.NameToLayer("Door02"))
