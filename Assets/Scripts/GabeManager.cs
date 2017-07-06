@@ -16,6 +16,7 @@ public class GabeManager : MonoBehaviour
     [SerializeField] Transform player, leftMirror, rightMirror, pedestal, leftPillar, rightPillar;
     public LookatTarget lookScript;
     [SerializeField] Rigidbody shard;
+	[SerializeField] GameObject shardicles;
     [SerializeField] Transform playerTracker;
     [SerializeField] OrbitScript rightEye, leftEye, deadEyeRight, deadEyeLeft;
     [SerializeField] float timeBetweenPillars = .5f;
@@ -54,7 +55,7 @@ public class GabeManager : MonoBehaviour
             !startedShaking &&
             Vector3.Angle(player.transform.position - lookScript.transform.position, player.transform.forward) > 120)
         {
-            StartCoroutine(Shake());
+            StartCoroutine(DeathThroes());
         }
 
         if ((currentlyActivatedMirrors == mirrorsActivated.MIRROR1 ||
@@ -137,7 +138,7 @@ public class GabeManager : MonoBehaviour
         lookScript.transform.position = originalPos;
     }
 
-    public IEnumerator Shake()
+    public IEnumerator DeathThroes()
     {
         CancelInvoke("SwitchTargetBetweenLeftAndRightPillar");
         targetPosition = pedestal.position;
@@ -160,6 +161,7 @@ public class GabeManager : MonoBehaviour
 
         shard.isKinematic = false;
         shard.transform.parent = null;
+		shardicles.SetActive (true);
 
         currentlyActivatedMirrors = mirrorsActivated.PUZZLE_COMPLETE;
 
