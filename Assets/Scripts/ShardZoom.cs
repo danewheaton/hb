@@ -27,6 +27,8 @@ public class ShardZoom : MonoBehaviour
                 FPPlayer.CurrentWeaponName.Get() == "2Lens")
                 FPPlayer.Zoom.TryStart();
         }
+
+        if (inTrigger) FPPlayer.Zoom.TryStart();
     }
 
     private void OnTriggerEnter(Collider other)
