@@ -22,7 +22,9 @@ public class ShardZoom : MonoBehaviour
 
         foreach (RaycastHit hit in hits)
         {
-            if (hit.transform.gameObject.tag == "Secret" && hit.collider.isTrigger)
+            if (hit.transform.gameObject.tag == "Secret" &&
+                hit.collider.isTrigger &&
+                FPPlayer.CurrentWeaponName.Get() == "2Lens")
                 FPPlayer.Zoom.TryStart();
         }
     }

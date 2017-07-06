@@ -53,9 +53,11 @@ public class GabeManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        followingPlayer = true;
-
-		GabeZoneActivate ();
+        if (other.gameObject == player.gameObject)
+        {
+            followingPlayer = true;
+            GabeZoneActivate();
+        }
     }
 
     private void OnTriggerExit(Collider other)
