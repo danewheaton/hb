@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShardZoom : MonoBehaviour
 {
+    [SerializeField] float range = 2;
     vp_FPPlayerEventHandler FPPlayer;
     Transform otherObject = null;
     bool inTrigger;
@@ -17,11 +18,11 @@ public class ShardZoom : MonoBehaviour
     {
         RaycastHit[] hits;
         Ray ray = new Ray(Camera.main.transform.position, transform.forward);
-        hits = Physics.RaycastAll(ray, 10);
+        hits = Physics.RaycastAll(ray, range);
 
         foreach (RaycastHit hit in hits)
         {
-            if (hit.transform.gameObject.tag == "Secret")
+            if (hit.transform.gameObject.tag == "Secret" && hit.collider.isTrigger)
                 FPPlayer.Zoom.TryStart();
         }
     }
