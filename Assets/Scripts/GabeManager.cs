@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Cameras;
+using UnityStandardAssets.ImageEffects;
 
 public enum mirrorsActivated { NONE, MIRROR1, MIRROR2, BOTH_MIRRORS, PUZZLE_COMPLETE }
 
@@ -23,6 +24,9 @@ public class GabeManager : MonoBehaviour
     Vector3 targetPosition, originalPos1;
 
 	public MonoBehaviour[] gabeZoneEffects;
+	private float dofCurrentAperture;
+	public float dofTargetAperture;
+	public float dofLerpRate;
 
     private void Start()
     {
@@ -32,6 +36,16 @@ public class GabeManager : MonoBehaviour
     private void Update()
     {
         if (followingPlayer) targetPosition = player.position;
+
+		if (followingPlayer == true)
+		{
+			GabeZoneActivate ();
+		}
+
+		else
+		{
+			GabeZoneDeactivate ();	
+		}
 
         playerTracker.position = Vector3.Lerp(playerTracker.position, targetPosition, 3 * Time.deltaTime);
 
@@ -165,17 +179,22 @@ public class GabeManager : MonoBehaviour
 
 	void GabeZoneActivate()
 	{
-		for (int i = 0; i < (gabeZoneEffects.Length); i++)
-		{
-			gabeZoneEffects [i].enabled = true;
-		}
+//		for (int i = 0; i < (gabeZoneEffects.Length); i++)
+//		{
+//			gabeZoneEffects [i].enabled = true;
+//		}
+		dofCurrentAperture = Camera.main.GetComponent<DepthOfField>().aperture;
+		Camera.main.GetComponent<DepthOfField>().aperture = Mathf.Lerp(dofCurrentAperture, dofTargetAperture, dofLerpRate);
 	}
 
 	void GabeZoneDeactivate()
 	{
-		for (int i = 0; i < (gabeZoneEffects.Length); i++)
-		{
-			gabeZoneEffects [i].enabled = false;
-		}
+//		for (int i = 0; i < (gabeZoneEffects.Length); i++)
+//		{
+//			gabeZoneEffects [i].enabled = false;
+//		}
+		dofCurrentAperture = Camera.main.GetComponent<DepthOfField>().aperture;
+		Camera.main.GetComponent<DepthOfField>().aperture = Mathf.Lerp(dofCurrentAperture, 0, dofLerpRate);
+
 	}
 }
