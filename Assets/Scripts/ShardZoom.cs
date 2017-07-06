@@ -20,15 +20,16 @@ public class ShardZoom : MonoBehaviour
         Ray ray = new Ray(Camera.main.transform.position, transform.forward);
         hits = Physics.RaycastAll(ray, range);
 
-        foreach (RaycastHit hit in hits)
+        if (FPPlayer.CurrentWeaponName.Get() == "2Lens")
         {
-            if (hit.transform.gameObject.tag == "Secret" &&
-                hit.collider.isTrigger &&
-                FPPlayer.CurrentWeaponName.Get() == "2Lens")
-                FPPlayer.Zoom.TryStart();
-        }
+            if (inTrigger) FPPlayer.Zoom.TryStart();
 
-        if (inTrigger) FPPlayer.Zoom.TryStart();
+            foreach (RaycastHit hit in hits)
+            {
+                if (hit.transform.gameObject.tag == "Secret" && hit.collider.isTrigger)
+                    FPPlayer.Zoom.TryStart();
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
