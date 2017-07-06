@@ -11,12 +11,12 @@ public class GabeManager : MonoBehaviour
     mirrorsActivated currentlyActivatedMirrors = mirrorsActivated.NONE;
     public mirrorsActivated CurrentlyActivatedMirrors { get { return currentlyActivatedMirrors; } }
 
-    public GameObject alsoYouLeftMirror, alsoYouRightMirror, alsoAlsoYouLeftMirror, alsoAlsoYouRightMirror, deadEyeRight, deadEyeLeft;
+    public GameObject alsoYouLeftMirror, alsoYouRightMirror, alsoAlsoYouLeftMirror, alsoAlsoYouRightMirror;
     [SerializeField] Transform player, leftMirror, rightMirror, pedestal, leftPillar, rightPillar;
     public LookatTarget lookScript;
     [SerializeField] Rigidbody shard;
     [SerializeField] Transform playerTracker;
-    [SerializeField] OrbitScript rightEye, leftEye;
+    [SerializeField] OrbitScript rightEye, leftEye, deadEyeRight, deadEyeLeft;
     [SerializeField] float timeBetweenPillars = .5f;
 
     bool followingPlayer, startedShaking;
@@ -152,8 +152,8 @@ public class GabeManager : MonoBehaviour
         playerTracker.position = player.position;
         lookScript.enabled = false;
         //lookScript.m_Target = playerTracker;
-        rightEye.YDPS = 0;
-        leftEye.YDPS = 0;
+        deadEyeLeft.YDPS = 0;
+        deadEyeRight.YDPS = 0;
 
         rightEye.gameObject.layer = LayerMask.NameToLayer("Gabe");
         leftEye.gameObject.layer = LayerMask.NameToLayer("Gabe");
