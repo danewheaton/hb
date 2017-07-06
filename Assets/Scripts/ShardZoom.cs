@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class ShardZoom : MonoBehaviour
 {
+    bool canEnterSecretPortal;
+    public bool CanEnterSecretPortal { get { return canEnterSecretPortal; } }
+
     [SerializeField] float range = 2;
+    List<Collider> colliders = new List<Collider>();
     vp_FPPlayerEventHandler FPPlayer;
-    Transform otherObject = null;
     bool inTrigger;
 
     private void Start()
@@ -22,34 +25,50 @@ public class ShardZoom : MonoBehaviour
 
         if (FPPlayer.CurrentWeaponName.Get() == "2Lens")
         {
-            if (inTrigger) FPPlayer.Zoom.TryStart();
+            if (inTrigger)
+            {
+                canEnterSecretPortal = true;
+
+                FPPlayer.Zoom.TryStart();
+
+                if (colliders[0] != null && !colliders[0].enabled)
+                    ToggleOtherColliders(true);
+            }
 
             foreach (RaycastHit hit in hits)
             {
                 if (hit.transform.gameObject.tag == "Secret" && hit.collider.isTrigger)
+                {
                     FPPlayer.Zoom.TryStart();
+
+                    foreach (Collider c in hit.transform.GetComponentsInChildren<Collider>())
+                    {
+                        if (!colliders.Contains(c) && !c.isTrigger)
+                            colliders.Add(c);
+                    }
+                }
             }
         }
+        else canEnterSecretPortal = false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Secret")
-        {
-            inTrigger = true;
-            otherObject = other.transform;
-        }
+        if (other.tag == "Secret") inTrigger = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
         inTrigger = false;
         FPPlayer.Zoom.TryStop();
+        ToggleOtherColliders(false);
     }
 
-    public void StopZooming()
+    void ToggleOtherColliders(bool activateObject)
     {
-        inTrigger = false;
-        FPPlayer.Zoom.TryStop();
+        foreach (Collider c in colliders)
+            c.enabled = activateObject ? true : false;
+
+        if (!activateObject) colliders.Clear();
     }
 }
