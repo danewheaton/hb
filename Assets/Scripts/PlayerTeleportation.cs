@@ -19,7 +19,7 @@ public enum PlayerStates
 
 public class PlayerTeleportation : MonoBehaviour
 {
-    public GameObject observatoryPortalTrigger, observatoryMirror1, observatoryMirror2, pedestal, directionalLight, flamingo, flamingoLegs, donut1, donut2, flamingoTrigger, startingDoorTrigger,
+    public GameObject chapterhouseCeiling, observatoryPortalTrigger, observatoryMirror1, observatoryMirror2, pedestal, directionalLight, flamingo, flamingoLegs, donut1, donut2, flamingoTrigger, startingDoorTrigger,
         startingDoorTriggerClockwise, glass0, glass0Copy, startingDoor, startingDoorBlocker, hallwayTrigger, hallwayWall01,
         hallwayWall02, teleporterTrigger01, triggerAfterTeleporter01, wallBlockingWay, teleporterTrigger02Right, teleporterTrigger02Left, narthexDoor,
         narthexDoorTrigger, narthexDoorBlocker, glass1Activator, glass1perspectivePuzzle, glass1gameObject, invisibleDoor01, invisibleDoor01Blocker,
