@@ -19,7 +19,7 @@ public enum PlayerStates
 
 public class PlayerTeleportation : MonoBehaviour
 {
-    public GameObject chapterhouseCeiling, observatoryPortalTrigger, observatoryMirror1, observatoryMirror2, pedestal, directionalLight, flamingo, flamingoLegs, donut1, donut2, flamingoTrigger, startingDoorTrigger,
+    public GameObject chapterhouseCeiling, windowWall, observatoryPortalTrigger, observatoryMirror1, observatoryMirror2, pedestal, directionalLight, flamingo, flamingoLegs, donut1, donut2, flamingoTrigger, startingDoorTrigger,
         startingDoorTriggerClockwise, glass0, glass0Copy, startingDoor, startingDoorBlocker, hallwayTrigger, hallwayWall01,
         hallwayWall02, teleporterTrigger01, triggerAfterTeleporter01, wallBlockingWay, teleporterTrigger02Right, teleporterTrigger02Left, narthexDoor,
         narthexDoorTrigger, narthexDoorBlocker, glass1Activator, glass1perspectivePuzzle, glass1gameObject, invisibleDoor01, invisibleDoor01Blocker,
@@ -42,7 +42,7 @@ public class PlayerTeleportation : MonoBehaviour
     Vector3 originalScale, targetScale = new Vector3(.15f, .15f, .15f);
 
     int laps;
-    bool flamingoIsVisible, passedThrough, hittingForeground, hittingBackground, wentAroundOnce;
+    bool flamingoIsVisible, passedThrough, hittingForeground, hittingBackground, wentAroundOnce, windowCanDisappear;
     private IEnumerable<Material> materials;
 
     void OnDrawGizmos()
@@ -199,6 +199,7 @@ public class PlayerTeleportation : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        #region observatory
         if (other.gameObject == observatoryMirror1 && Vector3.Angle(transform.position - gabe.lookScript.transform.position, transform.forward) < 60)
         {
             switch (gabe.CurrentlyActivatedMirrors)
@@ -261,6 +262,13 @@ public class PlayerTeleportation : MonoBehaviour
 
             staticAssets.SetActive(true);
             dynamicAssets.SetActive(true);
+        }
+
+        #endregion
+
+        else if (other.gameObject == chapterhouseCeiling)
+        {
+            windowCanDisappear = true;
         }
 
         else if (other.gameObject == startingDoorTrigger || other.gameObject == startingDoorTriggerClockwise)
