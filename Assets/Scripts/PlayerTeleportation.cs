@@ -19,7 +19,7 @@ public enum PlayerStates
 
 public class PlayerTeleportation : MonoBehaviour
 {
-    public GameObject chapterhouseCeiling, windowWall, observatoryPortalTrigger, observatoryMirror1, observatoryMirror2, pedestal, directionalLight, flamingo, flamingoLegs, donut1, donut2, flamingoTrigger, startingDoorTrigger,
+    public GameObject chapterhouseCeiling, windowWall, window, observatoryPortalTrigger, observatoryMirror1, observatoryMirror2, pedestal, directionalLight, flamingo, flamingoLegs, donut1, donut2, flamingoTrigger, startingDoorTrigger,
         startingDoorTriggerClockwise, glass0, glass0Copy, startingDoor, startingDoorBlocker, hallwayTrigger, hallwayWall01,
         hallwayWall02, teleporterTrigger01, triggerAfterTeleporter01, wallBlockingWay, teleporterTrigger02Right, teleporterTrigger02Left, narthexDoor,
         narthexDoorTrigger, narthexDoorBlocker, glass1Activator, glass1perspectivePuzzle, glass1gameObject, invisibleDoor01, invisibleDoor01Blocker,
@@ -42,7 +42,7 @@ public class PlayerTeleportation : MonoBehaviour
     Vector3 originalScale, targetScale = new Vector3(.15f, .15f, .15f);
 
     int laps;
-    bool flamingoIsVisible, passedThrough, hittingForeground, hittingBackground, wentAroundOnce, windowCanDisappear;
+    bool flamingoIsVisible, passedThrough, hittingForeground, hittingBackground, wentAroundOnce, windowCanDisappear, toggleDevTeleport;
     private IEnumerable<Material> materials;
 
     void OnDrawGizmos()
@@ -159,8 +159,10 @@ public class PlayerTeleportation : MonoBehaviour
         if (mirrorDoor2Blocker.activeInHierarchy) glass2.GetComponent<Renderer>().enabled = false;
         else glass2.GetComponent<Renderer>().enabled = true;
 
-//        if (Application.isEditor)
-//        {
+        if (Input.GetKeyDown(KeyCode.BackQuote)) toggleDevTeleport = !toggleDevTeleport;
+
+        if (Application.isEditor || toggleDevTeleport)
+        {
             if (Input.GetKeyDown(KeyCode.K)) transform.position = playerStarts[1].position;
             if (Input.GetKeyDown(KeyCode.L))
             {
@@ -189,7 +191,7 @@ public class PlayerTeleportation : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.K)) transform.position = playerStarts[1].position;
             if (Input.GetKeyDown(KeyCode.L)) transform.position = playerStarts[2].position;
             if (Input.GetKeyDown(KeyCode.Semicolon)) transform.position = playerStarts[3].position;
-//        }
+        }
     }
 
 
@@ -286,6 +288,22 @@ public class PlayerTeleportation : MonoBehaviour
             {
                 startingDoorTriggerClockwise.SetActive(false);
                 startingDoorTrigger.SetActive(true);
+            }
+
+            if (laps < scrawlings.Length && Vector3.Angle(window.transform.position - transform.position, transform.forward) > 90)
+            {
+                if (windowCanDisappear)
+                {
+                    window.SetActive(false);
+                    windowWall.SetActive(true);
+                    windowCanDisappear = false;
+                }
+                else
+                {
+                    window.SetActive(true);
+                    windowWall.SetActive(false);
+                    windowCanDisappear = true;
+                }
             }
 
             if (Vector3.Angle(targetDirection, transform.forward) > 90)
