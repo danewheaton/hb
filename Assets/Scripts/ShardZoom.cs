@@ -8,6 +8,7 @@ public class ShardZoom : MonoBehaviour
     public bool CanEnterSecretPortal { get { return canEnterSecretPortal; } }
 
     [SerializeField] float range = 2;
+    [SerializeField] vp_FPCamera cam;
     List<Collider> colliders = new List<Collider>();
     vp_FPPlayerEventHandler FPPlayer;
     bool inTrigger;
@@ -29,7 +30,8 @@ public class ShardZoom : MonoBehaviour
             {
                 canEnterSecretPortal = true;
 
-                FPPlayer.Zoom.TryStart();
+                //FPPlayer.Zoom.TryStart();
+                //cam.RenderingFieldOfView = 45;
 
                 if (colliders.Count != 0 && !colliders[0].enabled)
                     ToggleOtherColliders(true);
@@ -40,6 +42,7 @@ public class ShardZoom : MonoBehaviour
                 if (hit.transform.gameObject.tag == "Secret" && hit.collider.isTrigger)
                 {
                     FPPlayer.Zoom.TryStart();
+                    cam.RenderingFieldOfView = 45;
 
                     foreach (Collider c in hit.transform.GetComponentsInChildren<Collider>())
                     {
@@ -61,6 +64,7 @@ public class ShardZoom : MonoBehaviour
     {
         inTrigger = false;
         FPPlayer.Zoom.TryStop();
+        cam.RenderingFieldOfView = 60;
         ToggleOtherColliders(false);
     }
 
