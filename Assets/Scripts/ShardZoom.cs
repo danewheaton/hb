@@ -9,6 +9,7 @@ public class ShardZoom : MonoBehaviour
 
     [SerializeField] float range = 2;
     [SerializeField] vp_FPCamera cam;
+    [SerializeField] TextAsset newCamPreset, originalCamPreset;
     List<Collider> colliders = new List<Collider>();
     vp_FPPlayerEventHandler FPPlayer;
     bool inTrigger;
@@ -26,12 +27,13 @@ public class ShardZoom : MonoBehaviour
 
         if (FPPlayer.CurrentWeaponName.Get() == "2Lens")
         {
+            cam.States[0].Preset.LoadFromTextAsset(newCamPreset);
+
             if (inTrigger)
             {
                 canEnterSecretPortal = true;
 
                 //FPPlayer.Zoom.TryStart();
-                //cam.RenderingFieldOfView = 45;
 
                 if (colliders.Count != 0 && !colliders[0].enabled)
                     ToggleOtherColliders(true);
@@ -42,7 +44,6 @@ public class ShardZoom : MonoBehaviour
                 if (hit.transform.gameObject.tag == "Secret" && hit.collider.isTrigger)
                 {
                     FPPlayer.Zoom.TryStart();
-                    cam.RenderingFieldOfView = 45;
 
                     foreach (Collider c in hit.transform.GetComponentsInChildren<Collider>())
                     {
@@ -52,7 +53,11 @@ public class ShardZoom : MonoBehaviour
                 }
             }
         }
-        else canEnterSecretPortal = false;
+        else
+        {
+            canEnterSecretPortal = false;
+            cam.States[0].Preset.LoadFromTextAsset(originalCamPreset);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -64,7 +69,6 @@ public class ShardZoom : MonoBehaviour
     {
         inTrigger = false;
         FPPlayer.Zoom.TryStop();
-        cam.RenderingFieldOfView = 60;
         ToggleOtherColliders(false);
     }
 
