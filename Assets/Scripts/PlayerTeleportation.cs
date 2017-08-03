@@ -34,6 +34,7 @@ public class PlayerTeleportation : MonoBehaviour
     public Material beigeMaterial, whiteMaterial, oldCourtyardMaterial, invisibleMaterial, correctShardMaterial, fakeShardMaterial;
     public Credits creditsPanel;
     public GabeManager gabe;
+    public List<Transform> chairs = new List<Transform>();
 
     List<Renderer> flamingoRenderers = new List<Renderer>();
     List<Material> flamingoMaterials = new List<Material>(), legMaterials = new List<Material>();
@@ -42,7 +43,7 @@ public class PlayerTeleportation : MonoBehaviour
     Vector3 originalScale, targetScale = new Vector3(.15f, .15f, .15f);
 
     int laps;
-    bool flamingoIsVisible, passedThrough, hittingForeground, hittingBackground, wentAroundOnce, windowCanDisappear, toggleDevTeleport;
+    bool flamingoIsVisible, passedThrough, hittingForeground, hittingBackground, wentAroundOnce, windowCanDisappear, toggleDevTeleport, inRefectory;
     private IEnumerable<Material> materials;
 
     void OnDrawGizmos()
@@ -94,6 +95,22 @@ public class PlayerTeleportation : MonoBehaviour
         {
             case PlayerStates.NORMAL:
                 if (!mirrorDoor2Blocker.activeInHierarchy) mirrorDoor2Blocker.SetActive(true);
+                if (inRefectory)
+                {
+                    RaycastHit hit;
+
+                    if (Physics.SphereCast(transform.position, 2, transform.forward, out hit, 10))
+                    {
+                        if (hit.transform.tag == "Chair" && !chairs.Contains(hit.transform))
+                            chairs.Add(hit.transform);
+                    }
+
+                    if (chairs.Count > 18)
+                    {
+                        foreach (Transform t in chairs) t.gameObject.SetActive(false);
+                        inRefectory = false;
+                    }
+                }
                 break;
             case PlayerStates.SECOND_FLAMINGO_ENCOUNTER:
                 Vector3 flamingoDirection2 = flamingo.transform.position - transform.position;
@@ -121,6 +138,7 @@ public class PlayerTeleportation : MonoBehaviour
                     mirror.SetActive(true);
                     fakeMirror.SetActive(false);
                     flamingo.transform.position = flamingoTransforms[2].position;
+                    inRefectory = true;
                     currentState = PlayerStates.NORMAL;
                 }
                 break;

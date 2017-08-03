@@ -20,6 +20,7 @@ public class GabeManager : MonoBehaviour
     [SerializeField] Transform playerTracker;
     [SerializeField] OrbitScript rightEye, leftEye, deadEyeRight, deadEyeLeft;
     [SerializeField] float timeBetweenPillars = .5f;
+    [SerializeField] KeyCode gabeSkipButton = KeyCode.O;
 
     bool followingPlayer, startedShaking;
     Vector3 targetPosition, originalPos1;
@@ -63,6 +64,11 @@ public class GabeManager : MonoBehaviour
             followingPlayer)
         {
             lookScript.transform.position = originalPos1 + Random.insideUnitSphere * .02f;
+        }
+
+        if (Application.isEditor && Input.GetKeyDown(gabeSkipButton))
+        {
+            StartCoroutine(DeathThroes());
         }
     }
 
