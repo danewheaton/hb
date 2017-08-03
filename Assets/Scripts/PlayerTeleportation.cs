@@ -46,6 +46,14 @@ public class PlayerTeleportation : MonoBehaviour
     bool flamingoIsVisible, passedThrough, hittingForeground, hittingBackground, wentAroundOnce, windowCanDisappear, toggleDevTeleport, inRefectory;
     private IEnumerable<Material> materials;
 
+    #region spherecast parameters
+
+    Vector3 origin, direction;
+    const float radius = 2f, distance = 10;
+    RaycastHit hit;
+
+    #endregion
+
     void OnDrawGizmos()
     {
         Debug.DrawRay(Camera.main.transform.position, transform.forward);
@@ -95,18 +103,17 @@ public class PlayerTeleportation : MonoBehaviour
                 if (!mirrorDoor2Blocker.activeInHierarchy) mirrorDoor2Blocker.SetActive(true);
                 if (inRefectory)
                 {
-                    RaycastHit hit;
+                    origin = Camera.main.transform.position;
+                    direction = Camera.main.transform.forward;
 
-                    if (Physics.SphereCast(transform.position, 2, transform.forward, out hit, 10))
+                    if (Physics.SphereCast(origin, radius, direction, out hit, distance))
                     {
+                        print(hit.transform.name);
+
                         if (hit.transform.tag == "Chair" && !chairs.Contains(hit.transform))
+                        {
                             chairs.Add(hit.transform);
-                    }
-
-                    if (chairs.Count > 18)
-                    {
-                        foreach (Transform t in chairs) t.gameObject.SetActive(false);
-                        inRefectory = false;
+                        }
                     }
                 }
                 break;
@@ -136,7 +143,6 @@ public class PlayerTeleportation : MonoBehaviour
                     mirror.SetActive(true);
                     fakeMirror.SetActive(false);
                     flamingo.transform.position = flamingoTransforms[2].position;
-                    inRefectory = true;
                     currentState = PlayerStates.NORMAL;
                 }
                 break;
@@ -156,6 +162,7 @@ public class PlayerTeleportation : MonoBehaviour
                     fakeMirror.SetActive(false);
                     mirrorDoor1Blocker.SetActive(false);
                     flamingoIsVisible = true;
+                    inRefectory = true;
                     currentState = PlayerStates.NORMAL;
                 }
                 if (!mirrorDoor2Blocker.activeInHierarchy) mirrorDoor2Blocker.SetActive(true);
