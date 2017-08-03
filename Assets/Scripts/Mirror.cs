@@ -3,10 +3,12 @@ using System.Collections;
 
 public class Mirror : MonoBehaviour
 {
-    public Renderer mirrorDoor2Blocker;
+    public Renderer mirrorDoor2Blocker, flashingSurface;
+    public Color mirrorFlashColor = Color.white;
     Camera cam;
     Color originalColorTop;
     Color originalColorBottom;
+    Color originalMirrorMaterialColor;
 
     void Start()
     {
@@ -41,6 +43,7 @@ public class Mirror : MonoBehaviour
 
     public void PlayerIsCloseAndLookingAtMirror()
     {
+        StartCoroutine(Flash());
         cam.cullingMask = ((1 << LayerMask.NameToLayer("Default")) | (1 << LayerMask.NameToLayer("TransparentFX")) |
                     (1 << LayerMask.NameToLayer("Ignore Raycast")) | (1 << LayerMask.NameToLayer("Water")) |
                     (1 << LayerMask.NameToLayer("UI")) | (1 << LayerMask.NameToLayer("Glass1")) |
@@ -48,6 +51,22 @@ public class Mirror : MonoBehaviour
                     (1 << LayerMask.NameToLayer("Door02")) | (1 << LayerMask.NameToLayer("Door02Blocker")) |
                     (1 << LayerMask.NameToLayer("OldCourtyard")) | (1 << LayerMask.NameToLayer("NewChurch")) |
 			(1 << LayerMask.NameToLayer("Portal01")) | (1 << LayerMask.NameToLayer("MirrorDoor1")));
+    }
+
+    IEnumerator Flash()
+    {
+        flashingSurface.material.color = mirrorFlashColor;
+
+        float elapsedTime = 0, timer = 1;
+        while (elapsedTime < timer)
+        {
+            flashingSurface.material.color = Color.Lerp(mirrorFlashColor, originalMirrorMaterialColor, elapsedTime / timer);
+
+            elapsedTime += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+
+        flashingSurface.material.color = originalMirrorMaterialColor;
     }
 
     IEnumerator FadeMirrorImage()
