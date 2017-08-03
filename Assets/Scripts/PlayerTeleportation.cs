@@ -66,8 +66,6 @@ public class PlayerTeleportation : MonoBehaviour
 
     void Update()
     {
-        //print(Vector3.Distance(transform.position, altar.transform.position));
-
         if (Vector3.Distance(transform.position, altar.transform.position) < 1)
         {
             transform.localScale = Vector3.Lerp(transform.localScale, targetScale, 2 * Time.deltaTime);

@@ -5,6 +5,7 @@ public class Mirror : MonoBehaviour
 {
     public Renderer mirrorDoor2Blocker, flashingSurface;
     public Color mirrorFlashColor = Color.white;
+    public float flashTimer = 2;
     Camera cam;
     Color originalColorTop;
     Color originalColorBottom;
@@ -72,13 +73,12 @@ public class Mirror : MonoBehaviour
     IEnumerator FadeMirrorImage()
     {
         yield return new WaitForEndOfFrame();
-
-        float timer = .5f;
+        
         float elapsedTime = 0;
-        while (elapsedTime < timer)
+        while (elapsedTime < flashTimer)
         {
-            mirrorDoor2Blocker.material.SetColor("_TopColor", Color.Lerp(originalColorTop, Color.clear, elapsedTime / timer));
-            mirrorDoor2Blocker.material.SetColor("_BottomColor", Color.Lerp(originalColorBottom, Color.clear, elapsedTime / timer));
+            mirrorDoor2Blocker.material.SetColor("_TopColor", Color.Lerp(originalColorTop, Color.clear, elapsedTime / flashTimer));
+            mirrorDoor2Blocker.material.SetColor("_BottomColor", Color.Lerp(originalColorBottom, Color.clear, elapsedTime / flashTimer));
 
             elapsedTime += Time.deltaTime;
             yield return new WaitForEndOfFrame();
