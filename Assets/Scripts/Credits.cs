@@ -24,7 +24,7 @@ public class Credits : MonoBehaviour
         panelImage = GetComponent<Image>();
         player = GameObject.FindGameObjectWithTag("Player");
 
-        StartCoroutine(FadeIn());
+        //StartCoroutine(FadeIn());
     }
 
     void Update()
