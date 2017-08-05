@@ -6,6 +6,10 @@ public class MenuTest : MonoBehaviour
 {
 	public KeyCode menuDropTestKey = KeyCode.M;
 	public GameObject menuFloor;
+    public Transform flamingo;
+    public float stareTime = 3, flamingoAngle = 170;
+
+    float timer;
 
 	void Start ()
 	{
@@ -14,10 +18,17 @@ public class MenuTest : MonoBehaviour
 	
 	void Update ()
 	{
-		if (Input.GetKeyDown(menuDropTestKey))
+        Vector3 targetDirection = Camera.main.transform.position - flamingo.transform.position;
+
+        if (Vector3.Angle(targetDirection, Camera.main.transform.forward) > flamingoAngle)
 		{
-			FindObjectOfType<vp_FPController> ().MotorAcceleration = 0.12f;
-			menuFloor.GetComponent<MeshCollider> ().enabled = false;
+            timer += Time.deltaTime;
+
+            if (timer >= stareTime)
+            {
+                FindObjectOfType<vp_FPController>().MotorAcceleration = 0.12f;
+                menuFloor.GetComponent<MeshCollider>().enabled = false;
+            }
 		}
 	}
 }
