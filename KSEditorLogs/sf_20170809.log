@@ -1,0 +1,162 @@
+2017-08-09 09:03:38.3312 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 09:16:52.1891 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 09:39:09.2597 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 09:39:24.0287 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 09:43:41.6846 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 09:50:33.9306 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 09:50:56.5430 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 09:50:56.6935 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-09 09:51:38.9244 [DEBUG] Play mode: False
+2017-08-09 09:53:27.3182 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 09:53:27.4603 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-09 09:53:40.5051 [DEBUG] Play mode: False
+2017-08-09 09:53:44.6052 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 09:53:44.7458 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-09 09:53:47.1061 [DEBUG] Play mode: False
+2017-08-09 09:55:17.1829 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 09:55:21.4025 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 09:55:21.5271 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-09 09:56:13.4586 [DEBUG] Play mode: False
+2017-08-09 10:00:04.3651 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 10:00:04.4846 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-09 10:00:06.9601 [DEBUG] Play mode: False
+2017-08-09 10:00:14.9787 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 10:00:15.0984 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-09 10:00:53.7907 [DEBUG] Play mode: False
+2017-08-09 10:01:43.0071 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 10:01:56.9182 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 10:01:57.0648 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-09 10:03:51.1983 [DEBUG] Play mode: False
+2017-08-09 10:04:52.3335 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 10:06:04.1996 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 10:06:04.3502 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-09 10:06:55.4457 [DEBUG] Play mode: False
+2017-08-09 10:17:57.0726 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 10:17:57.2417 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-09 10:18:32.7531 [DEBUG] Play mode: False
+2017-08-09 10:37:30.8039 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 10:37:30.8284 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+P_ChairPuzzle.Update () (at Assets/Scripts/P_ChairPuzzle.cs:13)
+
+2017-08-09 10:37:30.9490 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-09 10:37:30.9600 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+P_ChairPuzzle.Update () (at Assets/Scripts/P_ChairPuzzle.cs:13)
+
+2017-08-09 10:37:31.0541 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+P_ChairPuzzle.Update () (at Assets/Scripts/P_ChairPuzzle.cs:13)
+
+2017-08-09 10:37:31.1491 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+P_ChairPuzzle.Update () (at Assets/Scripts/P_ChairPuzzle.cs:13)
+
+2017-08-09 10:37:31.2527 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+P_ChairPuzzle.Update () (at Assets/Scripts/P_ChairPuzzle.cs:13)
+
+2017-08-09 10:37:31.3398 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+P_ChairPuzzle.Update () (at Assets/Scripts/P_ChairPuzzle.cs:13)
+
+2017-08-09 10:37:31.4438 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+P_ChairPuzzle.Update () (at Assets/Scripts/P_ChairPuzzle.cs:13)
+
+2017-08-09 10:37:31.5414 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+P_ChairPuzzle.Update () (at Assets/Scripts/P_ChairPuzzle.cs:13)
+
+2017-08-09 10:37:31.6465 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+P_ChairPuzzle.Update () (at Assets/Scripts/P_ChairPuzzle.cs:13)
+
+2017-08-09 10:37:31.7701 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+P_ChairPuzzle.Update () (at Assets/Scripts/P_ChairPuzzle.cs:13)
+
+2017-08-09 10:37:31.8841 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+P_ChairPuzzle.Update () (at Assets/Scripts/P_ChairPuzzle.cs:13)
+
+2017-08-09 10:37:31.9962 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+P_ChairPuzzle.Update () (at Assets/Scripts/P_ChairPuzzle.cs:13)
+
+2017-08-09 10:37:32.0963 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+P_ChairPuzzle.Update () (at Assets/Scripts/P_ChairPuzzle.cs:13)
+
+2017-08-09 10:37:32.1934 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+P_ChairPuzzle.Update () (at Assets/Scripts/P_ChairPuzzle.cs:13)
+
+2017-08-09 10:37:32.2854 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+P_ChairPuzzle.Update () (at Assets/Scripts/P_ChairPuzzle.cs:13)
+
+2017-08-09 10:37:32.3730 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+P_ChairPuzzle.Update () (at Assets/Scripts/P_ChairPuzzle.cs:13)
+
+2017-08-09 10:37:32.4656 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+P_ChairPuzzle.Update () (at Assets/Scripts/P_ChairPuzzle.cs:13)
+
+2017-08-09 10:37:32.5531 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+P_ChairPuzzle.Update () (at Assets/Scripts/P_ChairPuzzle.cs:13)
+
+2017-08-09 10:37:32.6417 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+P_ChairPuzzle.Update () (at Assets/Scripts/P_ChairPuzzle.cs:13)
+
+2017-08-09 10:37:32.7297 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+P_ChairPuzzle.Update () (at Assets/Scripts/P_ChairPuzzle.cs:13)
+
+2017-08-09 10:37:33.4136 [DEBUG] Play mode: False
+2017-08-09 10:38:28.2237 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 10:38:28.3908 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-09 10:39:12.5793 [DEBUG] Play mode: False
+2017-08-09 10:39:32.5421 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 10:39:32.6725 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-09 10:40:10.1689 [DEBUG] Play mode: False
+2017-08-09 10:59:43.5766 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 10:59:43.7403 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-09 11:01:06.6153 [DEBUG] Play mode: False
+2017-08-09 11:04:54.7427 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 11:20:20.8992 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 11:20:21.0428 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-09 11:21:17.0715 [DEBUG] Play mode: False
+2017-08-09 11:25:43.2662 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 11:25:43.4403 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-09 11:26:14.5623 [DEBUG] Play mode: False
+2017-08-09 11:26:39.5695 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 11:26:39.7176 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-09 11:27:06.4579 [DEBUG] Play mode: False
+2017-08-09 11:36:12.7728 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 11:36:12.9340 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-09 11:36:42.4595 [DEBUG] Play mode: False
+2017-08-09 11:43:57.8679 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 11:43:58.0497 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-09 11:44:50.2674 [DEBUG] Play mode: False
+2017-08-09 11:45:21.1449 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 11:45:21.2915 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-09 11:46:17.5203 [DEBUG] Play mode: False
+2017-08-09 11:47:57.1542 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 11:47:57.3108 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-09 11:48:41.0022 [DEBUG] Play mode: False
+2017-08-09 13:05:19.7732 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 13:14:50.6346 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 13:56:47.9439 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 13:56:48.0794 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-09 14:08:15.5634 [DEBUG] Play mode: False
+2017-08-09 14:25:52.9830 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 14:25:53.1602 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-09 14:35:42.9348 [DEBUG] Play mode: False
+2017-08-09 14:42:19.2071 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 14:44:00.3376 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 14:50:08.6451 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 14:50:08.7777 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-09 14:51:52.6787 [DEBUG] Play mode: False
+2017-08-09 14:56:57.3205 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 14:56:57.4415 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-09 15:00:53.2206 [DEBUG] Play mode: False
+2017-08-09 15:02:42.0122 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 15:02:42.1493 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-09 15:03:55.6094 [DEBUG] Play mode: False
+2017-08-09 15:05:01.9829 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 15:05:02.0965 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-09 15:06:00.6386 [DEBUG] Play mode: False
+2017-08-09 15:09:05.7791 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 15:09:05.8992 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-09 15:09:58.7631 [DEBUG] Play mode: False
+2017-08-09 15:10:35.4340 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 15:10:35.5546 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-09 15:11:47.2718 [DEBUG] Play mode: False
+2017-08-09 15:42:04.2162 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 15:42:54.2427 [DEBUG] Scene Fusion version 1.5.2
+2017-08-09 15:42:54.3718 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-09 15:44:03.2322 [DEBUG] Play mode: False

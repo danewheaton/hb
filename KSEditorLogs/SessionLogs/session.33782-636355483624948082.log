@@ -1,0 +1,25 @@
+2017-07-13 13:12:42.6404 [DEBUG] Authenticating with server...
+2017-07-13 13:12:43.0697 [DEBUG] Connected to room. (33782:SceneFusion:SceneFusion)
+2017-07-13 13:12:43.2148 [INFO] Connected to server.
+2017-07-13 13:12:43.2153 [DEBUG] OS : Microsoft Windows NT 10.0.15063.0
+2017-07-13 13:12:43.2153 [DEBUG] Unity Version : 5.6.1f1
+2017-07-13 13:12:43.2158 [DEBUG] Pro License : False
+2017-07-13 13:12:43.2163 [DEBUG] Platform : WindowsEditor
+2017-07-13 13:12:43.2163 [DEBUG] Build Target : StandaloneWindows
+2017-07-13 13:12:43.2163 [DEBUG] Scene Fusion version : 1.5.2
+2017-07-13 13:12:43.2168 [DEBUG] User : 
+2017-07-13 13:12:44.1154 [DEBUG] Tier: Mock, Permissions: FFFFFFFF
+2017-07-13 13:12:44.1159 [DEBUG] User Permissions: FFFFFFFF
+2017-07-13 13:13:00.0127 [DEBUG] No stand-in for UnityEngine.AI.NavMeshData
+2017-07-13 13:13:00.0127 [DEBUG] No stand-in for UnityEngine.AvatarMask
+2017-07-13 13:13:00.0127 [DEBUG] No stand-in for UnityEngine.Video.VideoClip
+2017-07-13 13:13:01.0793 [DEBUG] Uploading scene '_Main'
+2017-07-13 13:13:19.5556 [WARNING] Cannot sync '' (Texture3D) because it is not in Unity's asset database.
+2017-07-13 13:13:33.2445 [WARNING] Cannot sync '' (Texture3D) because it is not in Unity's asset database.
+2017-07-13 13:13:34.1898 [WARNING] Cannot sync '' (vp_ImpactEvent) because it is not in Unity's asset database.
+2017-07-13 13:13:34.2324 [WARNING] Cannot sync '' (vp_SurfaceType) because it is not in Unity's asset database.
+2017-07-13 13:13:59.9295 [DEBUG] Spawn request. (Objects: 2993)
+2017-07-13 13:14:00.3238 [DEBUG] Entity RPC. (Id: 1, Size: 796230, Reporting Threshold: 10000)
+2017-07-13 13:29:45.9350 [DEBUG] Disconnecting from room (33782:SceneFusion:SceneFusion)
+2017-07-13 13:29:46.1178 [INFO] Disconnected from server.
+2017-07-13 13:29:46.1188 [DEBUG] Disconnect. (Duration: -401)

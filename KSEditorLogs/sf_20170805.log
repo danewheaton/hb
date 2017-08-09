@@ -1,0 +1,198 @@
+2017-08-05 14:25:14.1104 [DEBUG] Scene Fusion version 1.5.2
+2017-08-05 14:50:00.2122 [DEBUG] Scene Fusion version 1.5.2
+2017-08-05 15:08:39.5221 [DEBUG] Scene Fusion version 1.5.2
+2017-08-05 15:08:39.6696 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-05 15:11:58.8130 [DEBUG] Play mode: False
+2017-08-05 15:17:18.1452 [DEBUG] Scene Fusion version 1.5.2
+2017-08-05 15:17:18.2562 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-05 15:18:13.7410 [DEBUG] Play mode: False
+2017-08-05 15:18:16.9135 [DEBUG] Scene Fusion version 1.5.2
+2017-08-05 15:18:17.0230 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-05 15:18:29.7570 [DEBUG] Play mode: False
+2017-08-05 15:35:22.6472 [DEBUG] Scene Fusion version 1.5.2
+2017-08-05 15:35:34.2767 [DEBUG] Scene Fusion version 1.5.2
+2017-08-05 15:35:34.3012 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:34.4373 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-05 15:35:34.4489 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:34.5619 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:34.6860 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:34.8111 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:34.9267 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:35.0453 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:35.1644 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:35.2719 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:35.3825 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:35.4796 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:35.6052 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:35.7283 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:35.8724 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:36.0120 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:36.1300 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:36.2561 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:36.3742 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:36.4868 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:36.6204 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:36.7435 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:36.8636 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:36.9881 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:37.1092 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:37.2218 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:37.3294 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:37.4430 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:37.5586 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:37.6691 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:37.7932 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:37.8988 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:38.0079 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:38.1169 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:38.2390 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:38.3446 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:38.4592 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:38.5643 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:38.6828 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:38.8014 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:38.9195 [ERROR] UnassignedReferenceException: The variable flamingo of MenuTest has not been assigned.
+You probably need to assign the flamingo variable of the MenuTest script in the inspector.
+MenuTest.Update () (at Assets/Scripts/MenuTest.cs:21)
+
+2017-08-05 15:35:39.9398 [DEBUG] Play mode: False
+2017-08-05 15:36:17.6472 [DEBUG] Scene Fusion version 1.5.2
+2017-08-05 15:36:17.7856 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-05 15:36:24.9406 [DEBUG] Play mode: False
+2017-08-05 15:37:26.5798 [DEBUG] Scene Fusion version 1.5.2
+2017-08-05 15:37:26.7084 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-05 15:37:33.7567 [DEBUG] Play mode: False
+2017-08-05 15:37:48.1585 [DEBUG] Scene Fusion version 1.5.2
+2017-08-05 15:37:52.2202 [DEBUG] Scene Fusion version 1.5.2
+2017-08-05 15:37:52.3343 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-05 15:38:23.4483 [DEBUG] Play mode: False
+2017-08-05 15:38:42.6676 [DEBUG] Scene Fusion version 1.5.2
+2017-08-05 15:39:15.8419 [DEBUG] Scene Fusion version 1.5.2
+2017-08-05 15:41:52.8478 [DEBUG] Scene Fusion version 1.5.2
+2017-08-05 15:42:43.3182 [DEBUG] Scene Fusion version 1.5.2
+2017-08-05 15:42:43.4423 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-05 15:43:00.2372 [DEBUG] Play mode: False
+2017-08-05 15:43:35.5631 [DEBUG] Scene Fusion version 1.5.2
+2017-08-05 15:45:48.0011 [DEBUG] Scene Fusion version 1.5.2
+2017-08-05 15:45:48.1412 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-05 15:46:35.8317 [DEBUG] Play mode: False
+2017-08-05 15:56:12.9754 [DEBUG] Scene Fusion version 1.5.2
+2017-08-05 15:56:13.1045 [DEBUG] Play mode: True, sync in play mode: False
+2017-08-05 16:02:50.6357 [DEBUG] Play mode: False

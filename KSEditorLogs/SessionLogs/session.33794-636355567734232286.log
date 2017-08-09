@@ -1,0 +1,52 @@
+2017-07-13 15:32:53.5588 [DEBUG] Authenticating with server...
+2017-07-13 15:32:53.6569 [DEBUG] Connected to room. (33794:SceneFusion:SceneFusion)
+2017-07-13 15:32:53.6669 [INFO] Connected to server.
+2017-07-13 15:32:53.6669 [DEBUG] OS : Microsoft Windows NT 10.0.15063.0
+2017-07-13 15:32:53.6669 [DEBUG] Unity Version : 5.6.1f1
+2017-07-13 15:32:53.6674 [DEBUG] Pro License : False
+2017-07-13 15:32:53.6674 [DEBUG] Platform : WindowsEditor
+2017-07-13 15:32:53.6674 [DEBUG] Build Target : StandaloneWindows
+2017-07-13 15:32:53.6674 [DEBUG] Scene Fusion version : 1.5.2
+2017-07-13 15:32:53.6679 [DEBUG] User : 
+2017-07-13 15:32:53.6869 [DEBUG] Tier: Mock, Permissions: FFFFFFFF
+2017-07-13 15:32:53.6869 [DEBUG] User Permissions: FFFFFFFF
+2017-07-13 15:32:53.6894 [DEBUG] No stand-in for UnityEngine.AI.NavMeshData
+2017-07-13 15:32:53.6894 [DEBUG] No stand-in for UnityEngine.AvatarMask
+2017-07-13 15:32:53.6894 [DEBUG] No stand-in for UnityEngine.Video.VideoClip
+2017-07-13 15:32:53.8831 [DEBUG] Uploading scene 'FusionTime'
+2017-07-13 15:32:54.8680 [WARNING] Cannot sync '' (vp_ImpactEvent) because it is not in Unity's asset database.
+2017-07-13 15:32:56.3302 [WARNING] Cannot sync '' (vp_SurfaceType) because it is not in Unity's asset database.
+2017-07-13 15:33:00.1097 [DEBUG] Spawn request. (Objects: 2919)
+2017-07-13 15:33:00.3244 [DEBUG] Entity RPC. (Id: 1, Size: 764171, Reporting Threshold: 10000)
+2017-07-13 15:34:59.7807 [DEBUG] Spawn request. (Objects: 1)
+2017-07-13 15:45:07.4675 [DEBUG] Disconnecting temporarily to recompile.
+2017-07-13 15:45:07.4675 [DEBUG] Disconnecting from room (33794:SceneFusion:SceneFusion)
+2017-07-13 15:45:07.4800 [INFO] Disconnected from server.
+2017-07-13 15:45:07.4800 [DEBUG] Disconnect. (Duration: 733)
+2017-07-13 15:45:47.2366 [DEBUG] Scene Fusion version 1.5.2
+2017-07-13 15:45:48.2320 [DEBUG] Property changes detected after recompile. Will not reconnect.
+2017-07-13 15:45:48.2726 [DEBUG] Connecting to room (33794:SceneFusion:SceneFusion) via TCP at console.kinematicsoup.com:1026
+2017-07-13 15:45:48.4397 [DEBUG] Authenticating with server...
+2017-07-13 15:45:48.5217 [DEBUG] Authentication with the remote host failed. (33794:SceneFusion:SceneFusion)
+2017-07-13 15:45:50.6139 [DEBUG] Connection Failed. (33794:SceneFusion:SceneFusion)
+2017-07-13 15:46:54.6800 [DEBUG] Connecting to room (33796:SceneFusion:SceneFusion) via TCP at console.kinematicsoup.com:1025
+2017-07-13 15:46:54.6937 [DEBUG] Guest connection. (Session: 33796)
+2017-07-13 15:46:54.8323 [DEBUG] Authenticating with server...
+2017-07-13 15:46:54.9009 [DEBUG] Connected to room. (33796:SceneFusion:SceneFusion)
+2017-07-13 15:46:54.9174 [INFO] Connected to server.
+2017-07-13 15:46:54.9179 [DEBUG] OS : Microsoft Windows NT 10.0.15063.0
+2017-07-13 15:46:54.9179 [DEBUG] Unity Version : 5.6.1f1
+2017-07-13 15:46:54.9179 [DEBUG] Pro License : False
+2017-07-13 15:46:54.9184 [DEBUG] Platform : WindowsEditor
+2017-07-13 15:46:54.9184 [DEBUG] Build Target : StandaloneWindows
+2017-07-13 15:46:54.9184 [DEBUG] Scene Fusion version : 1.5.2
+2017-07-13 15:46:54.9184 [DEBUG] User : 
+2017-07-13 15:46:58.7311 [DEBUG] Tier: Mock, Permissions: FFFFFFFF
+2017-07-13 15:46:58.7311 [DEBUG] User Permissions: FFFFFFFF
+2017-07-13 15:47:00.5039 [DEBUG] No stand-in for UnityEngine.AI.NavMeshData
+2017-07-13 15:47:00.5044 [DEBUG] No stand-in for UnityEngine.AvatarMask
+2017-07-13 15:47:00.5044 [DEBUG] No stand-in for UnityEngine.Video.VideoClip
+2017-07-13 15:47:06.6683 [WARNING] Property mismatch detected on 'PlayerTeleportation' on prefab 'Assets/Player w_ Lens.prefab'. Your script source code or prefabs may be out of sync.
+2017-07-13 15:47:06.6848 [DEBUG] Disconnecting from room (33796:SceneFusion:SceneFusion)
+2017-07-13 15:47:06.6883 [INFO] Disconnected from server.
+2017-07-13 15:47:06.6883 [DEBUG] Disconnect. (Duration: 8)
