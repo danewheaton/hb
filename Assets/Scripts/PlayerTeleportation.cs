@@ -103,18 +103,18 @@ public class PlayerTeleportation : MonoBehaviour
                 if (!mirrorDoor2Blocker.activeInHierarchy) mirrorDoor2Blocker.SetActive(true);
                 if (inRefectory)
                 {
-                    origin = Camera.main.transform.position;
-                    direction = Camera.main.transform.forward;
+                    //origin = Camera.main.transform.position;
+                    //direction = Camera.main.transform.forward;
 
-                    if (Physics.SphereCast(origin, radius, direction, out hit, distance))
-                    {
-                        print(hit.transform.name);
+                    //if (Physics.SphereCast(origin, radius, direction, out hit, distance))
+                    //{
+                    //    print(hit.transform.name);
 
-                        if (hit.transform.tag == "Chair" && !chairs.Contains(hit.transform))
-                        {
-                            chairs.Add(hit.transform);
-                        }
-                    }
+                    //    if (hit.transform.tag == "Chair" && !chairs.Contains(hit.transform))
+                    //    {
+                    //        chairs.Add(hit.transform);
+                    //    }
+                    //}
                 }
                 break;
             case PlayerStates.SECOND_FLAMINGO_ENCOUNTER:
@@ -186,6 +186,8 @@ public class PlayerTeleportation : MonoBehaviour
 
         if (Application.isEditor || toggleDevTeleport)
         {
+            GetComponent<vp_FPController>().MotorAcceleration = .12f;
+
             if (Input.GetKeyDown(KeyCode.K)) transform.position = playerStarts[1].position;
             if (Input.GetKeyDown(KeyCode.L))
             {
@@ -394,11 +396,11 @@ public class PlayerTeleportation : MonoBehaviour
             donut1.SetActive(true);
         }
 
-        //else if (other.gameObject == narthexDoorTrigger)
-        //{
-        //    narthexDoor.SetActive(false);
-        //    narthexDoorBlocker.SetActive(true);
-        //}
+        else if (other.gameObject == narthexDoorTrigger)
+        {
+            narthexDoor.SetActive(false);
+            narthexDoorBlocker.SetActive(true);
+        }
 
         else if (other.gameObject == altarTeleporter)
         {
