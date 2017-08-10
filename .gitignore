@@ -1,4 +1,5 @@
 *.csproj
 *.sln
+*.suo
 Library/
 Temp/
