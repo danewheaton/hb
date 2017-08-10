@@ -13,10 +13,10 @@ public class MenuTest : MonoBehaviour
 
 	void Start ()
 	{
-		
-	}
-	
-	void Update ()
+        FindObjectOfType<vp_FPController>().MotorAcceleration = 0;
+    }
+
+    void Update ()
 	{
         Vector3 targetDirection = Camera.main.transform.position - flamingo.transform.position;
 
