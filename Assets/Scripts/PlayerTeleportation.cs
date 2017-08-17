@@ -186,11 +186,14 @@ public class PlayerTeleportation : MonoBehaviour
 
         if (Application.isEditor || toggleDevTeleport)
         {
-            GetComponent<vp_FPController>().MotorAcceleration = .12f;
-
-            if (Input.GetKeyDown(KeyCode.K)) transform.position = playerStarts[1].position;
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                transform.position = playerStarts[1].position;
+                GetComponent<vp_FPController>().MotorAcceleration = .12f;
+            }
             if (Input.GetKeyDown(KeyCode.L))
             {
+                GetComponent<vp_FPController>().MotorAcceleration = .12f;
                 transform.position = playerStarts[2].position;
 
                 //oldCourtyard.SetActive(false);
@@ -213,9 +216,26 @@ public class PlayerTeleportation : MonoBehaviour
                 mirror.SetActive(true);
             }
 
-            if (Input.GetKeyDown(KeyCode.K)) transform.position = playerStarts[1].position;
-            if (Input.GetKeyDown(KeyCode.L)) transform.position = playerStarts[2].position;
-            if (Input.GetKeyDown(KeyCode.Semicolon)) transform.position = playerStarts[3].position;
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                transform.position = playerStarts[1].position;
+                GetComponent<vp_FPController>().MotorAcceleration = .12f;
+            }
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                transform.position = playerStarts[2].position;
+                GetComponent<vp_FPController>().MotorAcceleration = .12f;
+            }
+            if (Input.GetKeyDown(KeyCode.Semicolon))
+            {
+                transform.position = playerStarts[3].position;
+                GetComponent<vp_FPController>().MotorAcceleration = .12f;
+            }
+            if (Input.GetKeyDown(KeyCode.Quote))
+            {
+                transform.position = playerStarts[5].position;
+                GetComponent<vp_FPController>().MotorAcceleration = .12f;
+            }
         }
     }
 
