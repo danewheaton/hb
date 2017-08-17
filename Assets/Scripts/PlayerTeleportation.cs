@@ -19,7 +19,7 @@ public enum PlayerStates
 
 public class PlayerTeleportation : MonoBehaviour
 {
-    public GameObject phoneBooth, chapterhouseCeiling, windowWall, window, observatoryPortalTrigger, observatoryMirror1, observatoryMirror2, pedestal, directionalLight, flamingo, flamingoLegs, donut1, donut2, flamingoTrigger, startingDoorTrigger,
+    public GameObject phoneBooth, mazeFloor, chapterhouseCeiling, windowWall, window, observatoryPortalTrigger, observatoryMirror1, observatoryMirror2, pedestal, directionalLight, flamingo, flamingoLegs, donut1, donut2, flamingoTrigger, startingDoorTrigger,
         startingDoorTriggerClockwise, glass0, glass0Copy, startingDoor, startingDoorBlocker, hallwayTrigger, hallwayWall01,
         hallwayWall02, teleporterTrigger01, triggerAfterTeleporter01, wallBlockingWay, teleporterTrigger02Right, teleporterTrigger02Left, narthexDoor,
         narthexDoorTrigger, narthexDoorBlocker, glass1Activator, glass1perspectivePuzzle, glass1gameObject, invisibleDoor01, invisibleDoor01Blocker,
@@ -522,6 +522,8 @@ public class PlayerTeleportation : MonoBehaviour
         }
         else if (other.gameObject.layer == LayerMask.NameToLayer("Portal01") || other.gameObject == phoneBooth)
         {
+            mazeFloor.SetActive(false);
+
             Vector3 targetDirection = portal01Transform.position - transform.position;
 
             if (Vector3.Angle(targetDirection, transform.forward) > 90)
