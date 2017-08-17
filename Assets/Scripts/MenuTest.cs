@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class MenuTest : MonoBehaviour
 {
-	public KeyCode menuDropTestKey = KeyCode.M;
+    [SerializeField] Color newColor = new Color(1, 1, 1, 0);
+    public KeyCode menuDropTestKey = KeyCode.M;
 	public GameObject menuFloor;
     public Transform flamingo;
     public float stareTime = 3, flamingoAngle = 170;
+
+    SpriteRenderer flamingoRenderer;
 
     float timer;
 
 	void Start ()
 	{
         FindObjectOfType<vp_FPController>().MotorAcceleration = 0;
+        flamingoRenderer = flamingo.GetComponent<SpriteRenderer>();
     }
 
     void Update ()
@@ -23,6 +27,8 @@ public class MenuTest : MonoBehaviour
         if (Vector3.Angle(targetDirection, Camera.main.transform.forward) > flamingoAngle)
 		{
             timer += Time.deltaTime;
+
+            flamingoRenderer.color = Color.Lerp(flamingoRenderer.color, newColor, Time.deltaTime);
 
             if (timer >= stareTime)
             {

@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MazeTeleporter : MonoBehaviour {
+public class MazeTeleporter : MonoBehaviour
+{
+    [SerializeField] Transform mazePlayerStart;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private void OnTriggerEnter(Collider other)
+    {
+        other.transform.position = new Vector3
+            (other.transform.position.x, mazePlayerStart.position.y, other.transform.position.z);
+    }
 }

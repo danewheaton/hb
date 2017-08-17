@@ -510,7 +510,6 @@ public class PlayerTeleportation : MonoBehaviour
                 {
                     if (r.materials.Length > 1)
                     {
-                        print("fuuuuuck");
                         r.materials[1] = correctShardMaterial;
                     }
                 }
