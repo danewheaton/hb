@@ -16,6 +16,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(SphereCollider))]
 
@@ -23,6 +24,9 @@ using System;
 [System.Serializable]
 public class vp_ItemPickup : MonoBehaviour
 {
+    public delegate void PickedUpObject();
+    public static event PickedUpObject OnPickedUpObject;
+
     [SerializeField] GameObject controlText;
 
 #if UNITY_EDITOR
@@ -473,6 +477,7 @@ public class vp_ItemPickup : MonoBehaviour
 		}
 
         controlText.SetActive(true);
+        if (OnPickedUpObject != null) OnPickedUpObject();
     }
 
 
