@@ -48,7 +48,13 @@ public class P_ActivateSymbol : MonoBehaviour
                 staredLongEnough = true;
             }
         }
-        else if (staredLongEnough) flamingoRenderer.color = clearWhite;
+        //else if (staredLongEnough) flamingoRenderer.color = clearWhite;
+        else
+        {
+            flamingoRenderer.color = Color.white;
+            staredLongEnough = false;
+            timer = 0;
+        }
     }
 
     IEnumerator FlashDoorway()
