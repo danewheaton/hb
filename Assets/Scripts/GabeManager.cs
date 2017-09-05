@@ -12,7 +12,7 @@ public class GabeManager : MonoBehaviour
     mirrorsActivated currentlyActivatedMirrors = mirrorsActivated.NONE;
     public mirrorsActivated CurrentlyActivatedMirrors { get { return currentlyActivatedMirrors; } }
 
-    public GameObject alsoYouLeftMirror, alsoYouRightMirror, alsoAlsoYouLeftMirror, alsoAlsoYouRightMirror;
+    public GameObject alsoYouLeftMirror, alsoYouRightMirror, alsoAlsoYouLeftMirror, alsoAlsoYouRightMirror, controlsText;
     [SerializeField] Transform player, leftMirror, rightMirror, pedestal, leftPillar, rightPillar;
     public LookatTarget lookScript;
     [SerializeField] Rigidbody shard;

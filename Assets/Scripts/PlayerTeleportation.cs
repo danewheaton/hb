@@ -19,7 +19,8 @@ public enum PlayerStates
 
 public class PlayerTeleportation : MonoBehaviour
 {
-    public GameObject phoneBooth, mazeFloor, chapterhouseCeiling, windowWall, window, observatoryPortalTrigger, observatoryMirror1, observatoryMirror2, pedestal, directionalLight, flamingo, flamingoLegs, donut1, donut2, flamingoTrigger, startingDoorTrigger,
+    public GameObject shard, controlsText, phoneBooth, mazeFloor, chapterhouseCeiling, windowWall, window, observatoryPortalTrigger,
+        observatoryMirror1, observatoryMirror2, pedestal, directionalLight, flamingo, flamingoLegs, donut1, donut2, flamingoTrigger, startingDoorTrigger,
         startingDoorTriggerClockwise, glass0, glass0Copy, startingDoor, startingDoorBlocker, hallwayTrigger, hallwayWall01,
         hallwayWall02, teleporterTrigger01, triggerAfterTeleporter01, wallBlockingWay, teleporterTrigger02Right, teleporterTrigger02Left, narthexDoor,
         narthexDoorTrigger, narthexDoorBlocker, glass1Activator, glass1perspectivePuzzle, glass1gameObject, invisibleDoor01, invisibleDoor01Blocker,
@@ -294,6 +295,12 @@ public class PlayerTeleportation : MonoBehaviour
         else if (other.gameObject == pedestal)
         {
             gabe.playerIsStandingOnPedestal = true;
+        }
+
+        else if (other.gameObject == shard)
+        {
+            print("picked up shard");
+            controlsText.SetActive(true);
         }
 
         else if (other.gameObject == observatoryPortalTrigger && GetComponent<ShardZoom>().CanEnterSecretPortal)

@@ -23,6 +23,7 @@ using System;
 [System.Serializable]
 public class vp_ItemPickup : MonoBehaviour
 {
+    [SerializeField] GameObject controlText;
 
 #if UNITY_EDITOR
 	[vp_ItemID]
@@ -400,7 +401,6 @@ public class vp_ItemPickup : MonoBehaviour
 	/// </summary>
 	protected virtual void OnTriggerEnter(Collider col)
 	{
-
 		if (!m_Item.GiveOnContact)
 			return;
 
@@ -433,7 +433,7 @@ public class vp_ItemPickup : MonoBehaviour
 		vp_Inventory inventory;
 		if (!m_ColliderInventories.TryGetValue(col, out inventory))
 		{
-			inventory = vp_TargetEventReturn<vp_Inventory>.SendUpwards(col, "GetInventory");
+            inventory = vp_TargetEventReturn<vp_Inventory>.SendUpwards(col, "GetInventory");
 			m_ColliderInventories.Add(col, inventory);
 		}
 
@@ -472,14 +472,14 @@ public class vp_ItemPickup : MonoBehaviour
 			OnFail(col.transform);
 		}
 
+        controlText.SetActive(true);
+    }
 
-	}
 
-
-	/// <summary>
-	/// 
-	/// </summary>
-	protected virtual void OnTriggerExit()
+    /// <summary>
+    /// 
+    /// </summary>
+    protected virtual void OnTriggerExit()
 	{
 
 		// reset fail status
