@@ -27,7 +27,7 @@ public class ShardZoom : MonoBehaviour
 
         if (FPPlayer.CurrentWeaponName.Get() == "2Lens")
         {
-            cam.States[0].Preset.LoadFromTextAsset(newCamPreset);
+//            cam.States[0].Preset.LoadFromTextAsset(newCamPreset);
 
             if (inTrigger)
             {
@@ -43,7 +43,7 @@ public class ShardZoom : MonoBehaviour
             {
                 if (hit.transform.gameObject.tag == "Secret" && hit.collider.isTrigger)
                 {
-                    FPPlayer.Zoom.TryStart();
+                    //FPPlayer.Zoom.TryStart();
 
                     foreach (Collider c in hit.transform.GetComponentsInChildren<Collider>())
                     {
@@ -56,7 +56,7 @@ public class ShardZoom : MonoBehaviour
         else
         {
             canEnterSecretPortal = false;
-            cam.States[0].Preset.LoadFromTextAsset(originalCamPreset);
+//            cam.States[0].Preset.LoadFromTextAsset(originalCamPreset);
         }
     }
 
