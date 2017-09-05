@@ -33,7 +33,8 @@ public class P_ActivateSymbol : MonoBehaviour
     {
         Vector3 targetDirection = Camera.main.transform.position - flamingo.transform.position;
 
-        if (Vector3.Angle(targetDirection, Camera.main.transform.forward) > flamingoAngle && FPPlayer.CurrentWeaponName.Get() == "2Lens" && !staredLongEnough)
+        if (Vector3.Angle(targetDirection, Camera.main.transform.forward) > flamingoAngle &&
+            FPPlayer.CurrentWeaponName.Get() == "2Lens" && !staredLongEnough)
         {
             timer += Time.deltaTime;
 
@@ -42,13 +43,12 @@ public class P_ActivateSymbol : MonoBehaviour
             if (timer >= stareTime && !staredLongEnough)
             {
                 mazeTeleporter.GetComponent<Collider>().enabled = true;
-                flamingoRenderer.color = Color.clear;
+                flamingoRenderer.color = clearWhite;
                 StartCoroutine(FlashDoorway());
                 staredLongEnough = true;
             }
         }
-        else if (!staredLongEnough) flamingoRenderer.color = originalColor;
-        else flamingoRenderer.color = Color.clear;
+        else if (staredLongEnough) flamingoRenderer.color = clearWhite;
     }
 
     IEnumerator FlashDoorway()
