@@ -305,6 +305,7 @@ public class PlayerTeleportation : MonoBehaviour
 
         else if (other.gameObject == observatoryPortalTrigger && GetComponent<ShardZoom>().CanEnterSecretPortal)
         {
+            narthexDoorBlocker.SetActive(false);
             transform.position = perchTransform.position;
 
             Renderer[] renderers = GetComponentsInChildren<Renderer>();

@@ -28,7 +28,7 @@ public class MenuTest : MonoBehaviour
 		{
             timer += Time.deltaTime;
 
-            flamingoRenderer.color = Color.Lerp(flamingoRenderer.color, newColor, Time.deltaTime);
+            //flamingoRenderer.color = Color.Lerp(flamingoRenderer.color, newColor, Time.deltaTime);
 
             if (timer >= stareTime)
             {
