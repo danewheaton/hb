@@ -12,7 +12,7 @@ public class GabeManager : MonoBehaviour
     mirrorsActivated currentlyActivatedMirrors = mirrorsActivated.NONE;
     public mirrorsActivated CurrentlyActivatedMirrors { get { return currentlyActivatedMirrors; } }
 
-    public GameObject alsoYouLeftMirror, alsoYouRightMirror, alsoAlsoYouLeftMirror, alsoAlsoYouRightMirror, controlsText;
+    public GameObject gabeSpeaker, alsoYouLeftMirror, alsoYouRightMirror, alsoAlsoYouLeftMirror, alsoAlsoYouRightMirror, controlsText;
     [SerializeField] Transform player, leftMirror, rightMirror, pedestal, leftPillar, rightPillar;
     public LookatTarget lookScript;
     [SerializeField] Rigidbody shard;
@@ -21,6 +21,7 @@ public class GabeManager : MonoBehaviour
     [SerializeField] OrbitScript rightEye, leftEye, deadEyeRight, deadEyeLeft;
     [SerializeField] float timeBetweenPillars = .5f;
     [SerializeField] KeyCode gabeSkipButton = KeyCode.O;
+    [SerializeField] AudioSource popNoise;
 
     bool followingPlayer, startedShaking;
     Vector3 targetPosition, originalPos1;
@@ -168,6 +169,8 @@ public class GabeManager : MonoBehaviour
         shard.isKinematic = false;
         shard.transform.parent = null;
 		shardicles.SetActive (true);
+        popNoise.Play();
+        gabeSpeaker.SetActive(false);
 
         currentlyActivatedMirrors = mirrorsActivated.PUZZLE_COMPLETE;
 

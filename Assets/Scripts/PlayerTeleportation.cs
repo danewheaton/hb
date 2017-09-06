@@ -317,6 +317,9 @@ public class PlayerTeleportation : MonoBehaviour
 
             staticAssets.SetActive(true);
             dynamicAssets.SetActive(true);
+
+            glass1perspectivePuzzle.SetActive(false);
+            glass1gameObject.SetActive(true);
         }
 
         #endregion
@@ -477,50 +480,7 @@ public class PlayerTeleportation : MonoBehaviour
             if (Vector3.Angle(targetDirection, transform.forward) > 90 && inFrontOfMirror)
             {
                 StartCoroutine(creditsPanel.FlashWhite());
-
-                invisibleDoor01Blocker.SetActive(false);
-                invisibleDoor01.GetComponent<Renderer>().material = beigeMaterial;
-                Camera.main.cullingMask = ((1 << LayerMask.NameToLayer("Default")) |
-                    (1 << LayerMask.NameToLayer("Ignore Raycast")) | (1 << LayerMask.NameToLayer("Water")) | (1 << LayerMask.NameToLayer("UI")) |
-                    (1 << LayerMask.NameToLayer("Door01")) | (1 << LayerMask.NameToLayer("Door01Blocker")) | (1 << LayerMask.NameToLayer("Door02")) |
-                    (1 << LayerMask.NameToLayer("Door02Blocker")) | (1 << LayerMask.NameToLayer("OldCourtyard")) |
-                    (1 << LayerMask.NameToLayer("Portal01")));
-
-                Renderer[] renderers = newChurch.GetComponentsInChildren<Renderer>();
-                
-				foreach (Renderer r in flamingo.GetComponentsInChildren<Renderer>())
-					r.material = invisibleMaterial;
-                    //r.material = renderers[0].material;
-
-                Material[] mats = flamingoLegs.GetComponent<Renderer>().materials;
-
-                donut1.SetActive(false);
-                donut2.SetActive(true);
-
-                donut2.GetComponent<Renderer>().material = renderers[0].material;
-
-
-                foreach (Material m in mats) m.mainTexture = renderers[0].material.mainTexture;
-
-                //flamingoLegs.GetComponent<Renderer>().materials[0] = renderers[0].material;
-                //flamingoLegs.GetComponent<Renderer>().materials[1] = renderers[0].material;
-
-                foreach (Renderer r in renderers) r.gameObject.layer = LayerMask.NameToLayer("NotEdgy");
-                Collider[] colliders = newChurch.GetComponentsInChildren<Collider>();
-                foreach (Collider c in colliders) c.enabled = false;
-                flamingo.transform.position = flamingoTransforms[5].position;
-                flamingo.transform.rotation = flamingoTransforms[5].rotation;
-
-                glass1gameObject.SetActive(false);
-
-                Renderer[] childRenderers = GetComponentsInChildren<Renderer>();
-                foreach (Renderer r in childRenderers)
-                {
-                    if (r.materials.Length > 1)
-                    {
-                        r.materials[1] = correctShardMaterial;
-                    }
-                }
+                GoThroughGlass1();
             }
         }
         else if (other.gameObject.layer == LayerMask.NameToLayer("Door02"))
@@ -719,6 +679,53 @@ public class PlayerTeleportation : MonoBehaviour
         if (other.gameObject == pedestal)
         {
             gabe.playerIsStandingOnPedestal = false;
+        }
+    }
+
+    void GoThroughGlass1()
+    {
+        invisibleDoor01Blocker.SetActive(false);
+        invisibleDoor01.GetComponent<Renderer>().material = beigeMaterial;
+        Camera.main.cullingMask = ((1 << LayerMask.NameToLayer("Default")) |
+            (1 << LayerMask.NameToLayer("Ignore Raycast")) | (1 << LayerMask.NameToLayer("Water")) | (1 << LayerMask.NameToLayer("UI")) |
+            (1 << LayerMask.NameToLayer("Door01")) | (1 << LayerMask.NameToLayer("Door01Blocker")) | (1 << LayerMask.NameToLayer("Door02")) |
+            (1 << LayerMask.NameToLayer("Door02Blocker")) | (1 << LayerMask.NameToLayer("OldCourtyard")) |
+            (1 << LayerMask.NameToLayer("Portal01")));
+
+        Renderer[] renderers = newChurch.GetComponentsInChildren<Renderer>();
+
+        foreach (Renderer r in flamingo.GetComponentsInChildren<Renderer>())
+            r.material = invisibleMaterial;
+        //r.material = renderers[0].material;
+
+        Material[] mats = flamingoLegs.GetComponent<Renderer>().materials;
+
+        donut1.SetActive(false);
+        donut2.SetActive(true);
+
+        donut2.GetComponent<Renderer>().material = renderers[0].material;
+
+
+        foreach (Material m in mats) m.mainTexture = renderers[0].material.mainTexture;
+
+        //flamingoLegs.GetComponent<Renderer>().materials[0] = renderers[0].material;
+        //flamingoLegs.GetComponent<Renderer>().materials[1] = renderers[0].material;
+
+        foreach (Renderer r in renderers) r.gameObject.layer = LayerMask.NameToLayer("NotEdgy");
+        Collider[] colliders = newChurch.GetComponentsInChildren<Collider>();
+        foreach (Collider c in colliders) c.enabled = false;
+        flamingo.transform.position = flamingoTransforms[5].position;
+        flamingo.transform.rotation = flamingoTransforms[5].rotation;
+
+        glass1gameObject.SetActive(false);
+
+        Renderer[] childRenderers = GetComponentsInChildren<Renderer>();
+        foreach (Renderer r in childRenderers)
+        {
+            if (r.materials.Length > 1)
+            {
+                r.materials[1] = correctShardMaterial;
+            }
         }
     }
 
