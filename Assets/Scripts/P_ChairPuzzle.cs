@@ -7,8 +7,8 @@ public class P_ChairPuzzle : MonoBehaviour
     [SerializeField] List<Renderer> InvisibleChairs = new List<Renderer>();
     [SerializeField] Transform table;
     [SerializeField] float angle = 60;
-    [SerializeField] GameObject winObject;
-    [SerializeField] Collider frontTrigger, rearTrigger;
+    [SerializeField] GameObject winObject, winObject2;
+    [SerializeField] Collider frontTrigger, rearTrigger, frontTrigger2, rearTrigger2;
 
     vp_FPPlayerEventHandler FPPlayer;
     Credits creditsPanel;
@@ -29,32 +29,6 @@ public class P_ChairPuzzle : MonoBehaviour
             if (Input.GetMouseButton(0) || Input.GetMouseButton(1)) timer += Time.deltaTime;
             else timer = 0;
 
-            //Vector3 tableDirection = table.position - transform.position;
-
-            //foreach (GameObject g in GameObject.FindGameObjectsWithTag("Chair"))
-            //{
-            //    Renderer chair = g.GetComponent<Renderer>();
-
-            //    if (chair.IsVisibleFrom(Camera.main) &&
-            //        Vector3.Angle(tableDirection, transform.forward) <= angle &&
-            //        FPPlayer.CurrentWeaponName.Get() == "2Lens" &&
-            //        (Input.GetMouseButton(0) || Input.GetMouseButton(1)))
-            //    {
-            //        if (!InvisibleChairs.Contains(chair)) InvisibleChairs.Add(chair);
-
-            //        if (InvisibleChairs.Count == 18)
-            //        {
-            //            if (timer > .5f)
-            //            {
-            //                winObject.SetActive(true);
-            //                solvedPuzzle = true;
-            //            }
-            //        }
-            //    }
-            //    else
-            //        InvisibleChairs.Remove(chair);
-            //}
-
             Vector3 tableDirection = table.position - transform.position;
 
             if (Vector3.Angle(tableDirection, transform.forward) <= angle &&
@@ -63,6 +37,7 @@ public class P_ChairPuzzle : MonoBehaviour
                     timer > 2)
             {
                 winObject.SetActive(true);
+                winObject2.SetActive(true);
                 solvedPuzzle = true;
                 StartCoroutine(creditsPanel.FlashWhite());
             }
@@ -71,7 +46,7 @@ public class P_ChairPuzzle : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other == frontTrigger || other == rearTrigger)
+        if (other == frontTrigger || other == rearTrigger || other == frontTrigger2 || other == rearTrigger2)
         {
             inTrigger = true;
         }
@@ -79,7 +54,7 @@ public class P_ChairPuzzle : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other == frontTrigger || other == rearTrigger)
+        if (other == frontTrigger || other == rearTrigger || other == frontTrigger2 || other == rearTrigger2)
         {
             inTrigger = false;
         }
