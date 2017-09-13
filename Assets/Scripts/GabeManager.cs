@@ -58,6 +58,7 @@ public class GabeManager : MonoBehaviour
             Vector3.Angle(player.transform.position - lookScript.transform.position, player.transform.forward) > 120)
         {
             StartCoroutine(DeathThroes());
+            //Invoke("PlayPopNoise", 2);
         }
 
         if ((currentlyActivatedMirrors == mirrorsActivated.MIRROR1 ||
@@ -70,6 +71,7 @@ public class GabeManager : MonoBehaviour
         if (Application.isEditor && Input.GetKeyDown(gabeSkipButton))
         {
             StartCoroutine(DeathThroes());
+           // Invoke("PlayPopNoise", 2);
         }
     }
 
@@ -164,12 +166,13 @@ public class GabeManager : MonoBehaviour
             elapsedTime += Time.deltaTime;
         }
 
+        popNoise.Play();
+
         lookScript.transform.position = originalPos;
 
         shard.isKinematic = false;
         shard.transform.parent = null;
 		shardicles.SetActive (true);
-        popNoise.Play();
         gabeSpeaker.SetActive(false);
 
         currentlyActivatedMirrors = mirrorsActivated.PUZZLE_COMPLETE;
@@ -208,4 +211,9 @@ public class GabeManager : MonoBehaviour
 		Camera.main.GetComponent<DepthOfField>().aperture = Mathf.Lerp(dofCurrentAperture, 0, dofLerpRate);
 
 	}
+
+    //void PlayPopNoise()
+    //{
+    //    popNoise.Play();
+    //}
 }
