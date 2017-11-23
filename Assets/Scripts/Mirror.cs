@@ -29,7 +29,6 @@ public class Mirror : MonoBehaviour
 
     public void PlayerIsOnFarSideOfTableOrLookingAway()
     {
-        StopCoroutine(FadeMirrorImage());
         mirrorDoor2Blocker.material.SetColor("_TopColor", originalColorTop);
         mirrorDoor2Blocker.material.SetColor("_BottomColor", originalColorBottom);
         cam.cullingMask = ((1 << LayerMask.NameToLayer("Default")) | (1 << LayerMask.NameToLayer("TransparentFX")) |
