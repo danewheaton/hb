@@ -77,8 +77,10 @@ public class Mirror : MonoBehaviour
         float elapsedTime = 0;
         while (elapsedTime < flashTimer)
         {
-            mirrorDoor2Blocker.material.SetColor("_TopColor", Color.Lerp(originalColorTop, Color.clear, elapsedTime / flashTimer));
-            mirrorDoor2Blocker.material.SetColor("_BottomColor", Color.Lerp(originalColorBottom, Color.clear, elapsedTime / flashTimer));
+            mirrorDoor2Blocker.material.SetColor
+                ("_TopColor", Color.Lerp(originalColorTop, Color.clear, elapsedTime / flashTimer));
+            mirrorDoor2Blocker.material.SetColor
+                ("_BottomColor", Color.Lerp(originalColorBottom, Color.clear, elapsedTime / flashTimer));
 
             elapsedTime += Time.deltaTime;
             yield return new WaitForEndOfFrame();

@@ -6,6 +6,9 @@ public class Footsteps : MonoBehaviour
     public AudioClip[] stepSounds;
     AudioSource source;
 
+    public float pitchMin;
+    public float pitchMax;
+
     float volume;
     const float bottomOfCatacombs = -9;
     float volumeYPosDifferential;
@@ -20,7 +23,8 @@ public class Footsteps : MonoBehaviour
     {
         if ((Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Vertical") > 0) && !source.isPlaying)
         {
-            source.clip = stepSounds[Random.Range(0, stepSounds.Length - 1)];
+            source.clip = stepSounds[Random.Range(0, stepSounds.Length)];
+            source.pitch = Random.Range(pitchMin, pitchMax);
             source.Play();
         }
 
@@ -31,7 +35,7 @@ public class Footsteps : MonoBehaviour
 
         if (transform.position.y < -1 && volume > 0)
         {
-            source.volume = Mathf.Lerp(source.volume, Mathf.Abs(transform.position.y) / 100, Time.deltaTime);
+            source.volume = Mathf.Lerp(source.volume, Mathf.Abs(transform.position.y) / 20, Time.deltaTime);
         }
     }
 }
