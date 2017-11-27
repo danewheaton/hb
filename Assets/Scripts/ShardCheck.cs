@@ -11,11 +11,13 @@ public class ShardCheck : MonoBehaviour
 
     private void Update()
     {
+
         if (shard.activeInHierarchy && !shardActivated)
         {
             cam.RenderingFieldOfView = 45;
             shardActivated = true;
         }
+
         else
         {
             cam.RenderingFieldOfView = 60;

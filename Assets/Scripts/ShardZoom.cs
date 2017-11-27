@@ -12,11 +12,15 @@ public class ShardZoom : MonoBehaviour
     [SerializeField] TextAsset newCamPreset, originalCamPreset;
     List<Collider> colliders = new List<Collider>();
     vp_FPPlayerEventHandler FPPlayer;
+    vp_FPCamera FPCam;
     bool inTrigger;
 
     private void Start()
     {
         FPPlayer = GetComponent<vp_FPPlayerEventHandler>();
+        FPCam = FindObjectOfType<vp_FPCamera>();
+        FPCam.Zoom();
+
     }
 
     private void Update()
