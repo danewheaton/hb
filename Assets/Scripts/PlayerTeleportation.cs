@@ -490,12 +490,11 @@ public class PlayerTeleportation : MonoBehaviour
         }
         else if (other.gameObject.layer == LayerMask.NameToLayer("Portal01") || other.gameObject == phoneBooth)
         {
-            mazeFloor.SetActive(false);
-
             Vector3 targetDirection = portal01Transform.position - transform.position;
 
             if (Vector3.Angle(targetDirection, transform.forward) > 90)
             {
+                mazeFloor.SetActive(false);
                 StartCoroutine(creditsPanel.FlashWhite());
                 oldCourtyard.SetActive(false);
                 Camera.main.cullingMask = ((1 << LayerMask.NameToLayer("Default")) |
