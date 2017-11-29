@@ -12,6 +12,7 @@ public class StartZoom : MonoBehaviour
     private void Start()
     {
         cam = GetComponentInChildren<vp_FPCamera>();
+        cam.SetState("StartZoom");
     }
 
     private void Update()
@@ -40,14 +41,15 @@ public class StartZoom : MonoBehaviour
 
     private void UpdateFOV()
     {
-        if (!hasClicked)
-        {
-            cam.RenderingFieldOfView = 30;
-        }
+        //if (!hasClicked)
+        //{
+        //    //cam.RenderingFieldOfView = 30;
+        //}
 
         if (hasClicked && !isClicking)
         {
-            cam.RenderingFieldOfView = 60;
+            //cam.RenderingFieldOfView = 60;
+            cam.StateManager.Reset();
         }
     }
 }
