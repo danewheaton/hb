@@ -15,6 +15,11 @@ public class Wink : MonoBehaviour
         Invoke("RandomlyWinkEveryOnceInAWhile", Random.Range(timeBetweenWinksLow, timeBetweenWinksHigh));
 	}
 
+    private void OnDisable()
+    {
+        CancelInvoke();
+    }
+
     void RandomlyWinkEveryOnceInAWhile()
     {
         if (isActiveAndEnabled) StartCoroutine(WaitToWink());
